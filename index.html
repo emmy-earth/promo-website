@@ -11,6 +11,9 @@
     <!-- Bootstrap Icons CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <!-- SimpleLightbox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplelightbox@2.14.2/dist/simple-lightbox.min.css" />
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,9 +48,24 @@
             font-weight: 700;
             font-size: 1.5rem;
             color: var(--emmy-dark);
+            display: flex;
+            align-items: center;
+        }
+        .navbar-brand img {
+            height: 40px;
+            width: auto;
+            max-width: 150px;
         }
         .navbar-brand .green-dot {
             color: var(--emmy-green);
+        }
+        
+        /* Mobile responsive logo sizing */
+        @media (max-width: 767.98px) {
+            .navbar-brand img {
+                height: 32px;
+                max-width: 120px;
+            }
         }
 
         .nav-link {
@@ -240,6 +258,14 @@
             color: var(--emmy-dark);
             text-decoration: underline;
         }
+
+        .lightbox-trigger img {
+            cursor: pointer;
+            transition: opacity 0.2s ease-in-out;
+        }
+        .lightbox-trigger img:hover {
+            opacity: 0.9;
+        }
     </style>
 </head>
 <body>
@@ -248,7 +274,9 @@
     <header class="sticky-top">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" href="#home" data-page="home">Emmy<span class="green-dot">.</span>earth</a>
+                <a class="navbar-brand" href="#home" data-page="home">
+                    <img src="assets/images/logo_rectangle.png" alt="Emmy.earth" />
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -311,9 +339,11 @@
             <!-- 1b. CO2 Scope 1&2 Section -->
             <div id="scope1-2" class="py-5" style="background-color: #ffffff;">
                 <div class="container" style="padding: 80px 0;">
+                    <div class="text-center mb-5">
+                        <h2>CO2 scope 1&2</h2>
+                    </div>
                     <div class="row align-items-center">
                         <div class="col-lg-5">
-                            <h2>CO2 scope 1&2</h2>
                             <div class="section-pitch">
                                 <p class="fw-bold">No manual invoice collection required anymore!</p>
                                 <ul class="mb-4">
@@ -324,7 +354,9 @@
                             </div>
                         </div>
                         <div class="col-lg-7">
-                            <img src="https://picsum.photos/seed/s1and2/1170/585.png" alt="CO2 Scope 1&2 Process" class="img-fluid shadow-sm">
+                            <a href="assets/images/flowchart_scope_1_2_white.jpg" class="lightbox-trigger">
+                                <img src="assets/images/flowchart_scope_1_2_white.jpg" alt="CO2 Scope 1&2 Process" class="img-fluid shadow-sm">
+                            </a>
                         </div>
                     </div>
                     <div class="row mt-5 g-4">
@@ -363,7 +395,7 @@
                                 <div class="vr mx-4 d-none d-md-block"></div>
                                 <div>
                                     <p class="h5 mb-2 fw-bold">Want a quote or demo?</p>
-                                    <button class="btn btn-outline-dark" data-page="contact">Request a Demo</button>
+                                    <a href="mailto:info@emmy.earth" class="btn btn-outline-dark">Request a Demo</a>
                                 </div>
                             </div>
                         </div>
@@ -374,9 +406,11 @@
             <!-- 1c. CO2 Scope 3 Section -->
             <div id="scope3" class="py-5">
                 <div class="container" style="padding: 80px 0;">
+                    <div class="text-center mb-5">
+                        <h2>CO2 scope 3</h2>
+                    </div>
                     <div class="row align-items-center flex-row-reverse">
                          <div class="col-lg-5">
-                            <h2>CO2 scope 3</h2>
                             <div class="section-pitch">
                                 <p class="fw-bold">No need to complete data-input templates anymore!</p>
                                 <ul class="mb-4">
@@ -387,7 +421,9 @@
                             </div>
                         </div>
                         <div class="col-lg-7">
-                            <img src="https://static-cse.canva.com/blob/1182139/graph_process-flow_promo-showcase_01-min.jpg" alt="CO2 Scope 3 Process" class="img-fluid shadow-sm" style="max-height: 585px; width: 100%; object-fit: cover;">
+                            <a href="assets/images/flowchart_scope_3_white.jpg" class="lightbox-trigger">
+                                <img src="assets/images/flowchart_scope_3_white.jpg" alt="CO2 Scope 3 Process" class="img-fluid shadow-sm" style="max-height: 585px; width: 100%; object-fit: cover;">
+                            </a>
                         </div>
                     </div>
                      <div class="row mt-5 g-4">
@@ -432,7 +468,7 @@
                                 <div class="vr mx-4 d-none d-md-block"></div>
                                 <div>
                                     <p class="h5 mb-2 fw-bold">Want a quote or demo?</p>
-                                    <button class="btn btn-outline-dark" data-page="contact">Request a Demo</button>
+                                    <a href="mailto:info@emmy.earth" class="btn btn-outline-dark">Request a Demo</a>
                                 </div>
                             </div>
                         </div>
@@ -480,7 +516,7 @@
                             <div class="text-center mt-5">
                                 <p class="mb-2">Want a granular breakdown of the business case for your company?</p>
                                 <p class="mb-3">We are happy to provide it during a demo call.</p>
-                                <button class="btn btn-demo" data-page="contact">Request a Demo Call</button>
+                                <a href="mailto:info@emmy.earth" class="btn btn-demo">Request a Demo Call</a>
                             </div>
                         </div>
                     </div>
@@ -556,6 +592,9 @@
     <!-- Bootstrap JS Bundle CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+    <!-- SimpleLightbox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/simplelightbox@2.14.2/dist/simple-lightbox.min.js"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link, .navbar-brand, .btn-demo, .dropdown-item[data-page], button[data-page]');
@@ -606,7 +645,7 @@
                     
                     if (pageId) {
                          e.preventDefault();
-                         const anchor = href.includes('#') && href.length > 1 ? href.substring(1) : null;
+                         const anchor = href && href.includes('#') && href.length > 1 ? href.substring(1) : pageId;
                          showPage(pageId, anchor);
                     }
                 });
@@ -627,18 +666,18 @@
 
 
             // Contact form dropdown logic
-            const contactOptions = document.getElementById('contactOptions');
-            if(contactOptions){
-                contactOptions.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    if (e.target.tagName === 'A') {
-                        const subject = e.target.innerText;
-                        const body = `Hi Emmy.earth team,\n\nI'm interested in the following:\n${subject}\n\nLooking forward to hearing from you.`;
-                        const mailtoLink = `mailto:info@emmy.earth?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                        window.location.href = mailtoLink;
-                    }
+            document.querySelectorAll('#contactOptions .dropdown-item').forEach(item => {
+                item.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const subject = this.innerText;
+                    const body = `Hi Emmy.earth team,\n\nI'm interested in the following:\n${subject}\n\nLooking forward to hearing from you.`;
+                    const mailtoLink = `mailto:info@emmy.earth?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    window.location.href = mailtoLink;
                 });
-            }
+            });
+
+            // Initialize lightbox
+            new SimpleLightbox('.lightbox-trigger');
         });
     </script>
 </body>
