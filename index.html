@@ -72,8 +72,11 @@
             color: var(--emmy-text);
             font-weight: 500;
         }
-        .nav-link:hover, .nav-link.active {
+        .nav-link:hover {
             color: var(--emmy-dark);
+        }
+        .nav-link.active {
+            color: var(--emmy-green);
         }
 
         .dropdown-item:active {
@@ -138,6 +141,9 @@
             margin-top: 3rem;
             font-style: italic;
             color: #d1d5db;
+            position: relative;
+            left: 2rem;
+            font-size: 1.125rem;
         }
 
         /* --- General Section Styling --- */
@@ -272,9 +278,6 @@
             cursor: pointer;
             transition: opacity 0.2s ease-in-out;
         }
-        .lightbox-trigger img:hover {
-            opacity: 0.9;
-        }
     </style>
 </head>
 <body>
@@ -328,10 +331,10 @@
                 <div class="container text-center">
                     <div class="row justify-content-center">
                         <div class="col-lg-10">
-                            <h1 class="mb-3">Automated carbon <br> accounting? Done.</h1>
+                            <h1 class="mb-4">Automated carbon <br> accounting? Done.</h1>
                             <p class="lead mb-5">
-                                Stop collecting invoices manually. <br>
-                                Meet Emmy – your AI-powered carbon analyst:
+                                <span style="color: var(--emmy-green);">Stop collecting invoices manually.</span> <br>
+                                Meet <span style="color: var(--emmy-green);">Emmy</span> – your AI-powered carbon analyst:
                             </p>
                             <div class="video-placeholder mb-5">
                                 <i class="bi bi-play-circle-fill" style="font-size: 4rem;"></i>
@@ -350,11 +353,11 @@
                     <div class="text-center mb-5">
                         <h2>Our GHG scope 1&2 module</h2>
                     </div>
-                    <div class="row justify-content-center">
+                    <div class="row">
                         <div class="col-lg-8">
                             <div class="section-pitch">
-                                <p class="fw-bold">No manual invoice collection required anymore!</p>
-                                <ul class="mb-4">
+                                <p class="fw-bold" style="color: var(--emmy-green); font-size: 1.25rem;">No manual invoice collection required anymore!</p>
+                                <ul class="mb-4" style="font-size: 1.1rem;">
                                     <li>Unlock 100% automated CO2 data collection & calculation</li>
                                     <li>Cut audit time & fees (instant audit readiness)</li>
                                     <li>Auto-generate reports & insights in a click</li>
@@ -404,11 +407,11 @@
                     <div class="text-center mb-5">
                         <h2>Our GHG scope 3 module</h2>
                     </div>
-                    <div class="row justify-content-center">
+                    <div class="row">
                          <div class="col-lg-8">
                             <div class="section-pitch">
-                                <p class="fw-bold">No need to complete data-input templates anymore!</p>
-                                <ul class="mb-4">
+                                <p class="fw-bold" style="color: var(--emmy-green); font-size: 1.25rem;">No need to complete data-input templates anymore!</p>
+                                <ul class="mb-4" style="font-size: 1.1rem;">
                                     <li>Unlock 100% automated CO2 scope 3 data-input template completion</li>
                                     <li>Cut audit time & fees (instant audit readiness)</li>
                                     <li>Auto-generate reports & insights in a click</li>
@@ -455,7 +458,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mt-5 justify-content-center">
+                </div>
+            </div>
+
+            <!-- New CTA Section -->
+            <div class="py-5" style="background-color: #ffffff;">
+                <div class="container">
+                    <div class="row justify-content-center">
                         <div class="col-lg-10">
                             <div class="cta-section d-md-flex justify-content-around align-items-center text-center">
                                 <div class="mb-3 mb-md-0">
@@ -472,6 +481,7 @@
                     </div>
                 </div>
             </div>
+
 
             <!-- 1d. Data Security Section -->
             <div id="data-security" class="py-5" style="background-color: #ffffff;">
@@ -526,12 +536,12 @@
              <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
-                        <h2>OUR MISSION</h2>
+                        <h2>Our mission</h2>
                         <p class="fs-5 text-center" style="line-height: 1.8; margin-top: 3rem;">With Emmy we want to empower businesses with truly effortless sustainability data management, at an affordable and reasonable cost. We see a future where complex data entry and manual processes are relics of the past. By pioneering fully automated platforms, we aim to deliver accurate, real-time insights, enabling our clients to focus on strategic action, not data wrangling.</p>
                         
                         <hr class="my-5">
                         
-                        <h3 class="text-center fw-bold">OUR COMPANY</h3>
+                        <h2 class="text-center">Our company</h2>
                         <p class="text-center mt-3 fs-5" style="line-height: 1.8;">We are a Belgian software company of AI & sustainability enthusiasts. We operate within the software group ProBackup B.V.. Would you like to learn more about us? Don’t hesitate to contact us.</p>
                     </div>
                 </div>
@@ -611,7 +621,7 @@
                 document.querySelectorAll('.nav-link').forEach(link => {
                     link.classList.remove('active');
                     const linkPage = link.getAttribute('href').substring(1);
-                    if (linkPage === pageId) {
+                    if (linkPage === pageId || (link.dataset.page && link.dataset.page === pageId)) {
                         link.classList.add('active');
                     }
                 });
@@ -639,7 +649,13 @@
                     if (pageId) {
                          e.preventDefault();
                          const anchor = href && href.includes('#') && href.length > 1 ? href.substring(1) : pageId;
-                         showPage(pageId, anchor);
+                         
+                         // Special handling for dropdown items pointing to anchors on home
+                         if(pageId === 'home' && anchor !== 'home'){
+                             showPage('home', anchor);
+                         } else {
+                             showPage(pageId, pageId);
+                         }
                     }
                 });
             });
