@@ -82,14 +82,14 @@
         }
 
         .btn-demo {
-            background-color: var(--emmy-dark);
+            background-color: var(--emmy-green);
             color: white;
             border-radius: 0.5rem;
             font-weight: 600;
             padding: 0.6rem 1.2rem;
         }
         .btn-demo:hover {
-            background-color: #333;
+            background-color: #2aa779;
             color: white;
         }
 
@@ -102,10 +102,15 @@
             display: block; /* Shown when active */
         }
 
+        #home {
+            padding: 0;
+        }
+
         /* --- Hero Section --- */
         #intro {
-            background-color: var(--emmy-dark);
+            background-color: #1A355A;
             color: #ffffff;
+            padding: 80px 0;
         }
         #intro h1 {
             font-size: 4rem;
@@ -113,7 +118,7 @@
             line-height: 1.2;
         }
         #intro .lead {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             color: #e5e7eb;
         }
         .video-placeholder {
@@ -141,6 +146,9 @@
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
             color: var(--emmy-dark);
+        }
+        #scope1-2 h2, #scope3 h2 {
+            font-size: 2.8rem;
         }
         .section-pitch {
             font-size: 1.1rem;
@@ -179,6 +187,7 @@
         .feature-box h4 {
             font-weight: 600;
             color: var(--emmy-dark);
+            font-size: 1.1rem;
         }
         .cta-section {
             background-color: var(--emmy-gray);
@@ -290,8 +299,8 @@
                                 Solutions
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="solutionsDropdown">
-                                <li><a class="dropdown-item" href="#scope1-2" data-page="home">CO2 scope 1&2</a></li>
-                                <li><a class="dropdown-item" href="#scope3" data-page="home">CO2 scope 3</a></li>
+                                <li><a class="dropdown-item" href="#scope1-2" data-page="home">GHG scope 1&2</a></li>
+                                <li><a class="dropdown-item" href="#scope3" data-page="home">GHG scope 3</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -328,8 +337,7 @@
                                 <i class="bi bi-play-circle-fill" style="font-size: 4rem;"></i>
                             </div>
                             <blockquote>
-                                <p class="mb-0">"Our goal is to make carbon accounting for your business feel so easy you'll forget it's there."</p>
-                                <footer class="blockquote-footer text-white-50 mt-2">Pieterjan Muller, Co-Founder Emmy.earth</footer>
+                                <p class="mb-0">Our goal is to make carbon accounting for your business feel so easy <br> you'll forget it's there - Pieterjan Muller, Co-Founder Emmy.earth</p>
                             </blockquote>
                         </div>
                     </div>
@@ -340,10 +348,10 @@
             <div id="scope1-2" class="py-5" style="background-color: #ffffff;">
                 <div class="container" style="padding: 80px 0;">
                     <div class="text-center mb-5">
-                        <h2>CO2 scope 1&2</h2>
+                        <h2>Our GHG scope 1&2 module</h2>
                     </div>
-                    <div class="row align-items-center">
-                        <div class="col-lg-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
                             <div class="section-pitch">
                                 <p class="fw-bold">No manual invoice collection required anymore!</p>
                                 <ul class="mb-4">
@@ -353,7 +361,9 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-7">
+                    </div>
+                    <div class="row justify-content-center mt-5">
+                        <div class="col-lg-10">
                             <a href="assets/images/flowchart_scope_1_2_white.jpg" class="lightbox-trigger">
                                 <img src="assets/images/flowchart_scope_1_2_white.jpg" alt="CO2 Scope 1&2 Process" class="img-fluid shadow-sm">
                             </a>
@@ -385,21 +395,6 @@
                             </div>
                         </div>
                     </div>
-                     <div class="row mt-5 justify-content-center">
-                        <div class="col-lg-10">
-                            <div class="cta-section d-md-flex justify-content-around align-items-center text-center">
-                                <div class="mb-3 mb-md-0">
-                                    <p class="h5 mb-2 fw-bold">Curious for the business case?</p>
-                                    <button class="btn btn-dark" data-page="business-case">View Business Case</button>
-                                </div>
-                                <div class="vr mx-4 d-none d-md-block"></div>
-                                <div>
-                                    <p class="h5 mb-2 fw-bold">Want a quote or demo?</p>
-                                    <a href="mailto:info@emmy.earth" class="btn btn-outline-dark">Request a Demo</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -407,10 +402,10 @@
             <div id="scope3" class="py-5">
                 <div class="container" style="padding: 80px 0;">
                     <div class="text-center mb-5">
-                        <h2>CO2 scope 3</h2>
+                        <h2>Our GHG scope 3 module</h2>
                     </div>
-                    <div class="row align-items-center flex-row-reverse">
-                         <div class="col-lg-5">
+                    <div class="row justify-content-center">
+                         <div class="col-lg-8">
                             <div class="section-pitch">
                                 <p class="fw-bold">No need to complete data-input templates anymore!</p>
                                 <ul class="mb-4">
@@ -420,7 +415,9 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-7">
+                    </div>
+                    <div class="row justify-content-center mt-5">
+                        <div class="col-lg-10">
                             <a href="assets/images/flowchart_scope_3_white.jpg" class="lightbox-trigger">
                                 <img src="assets/images/flowchart_scope_3_white.jpg" alt="CO2 Scope 3 Process" class="img-fluid shadow-sm" style="max-height: 585px; width: 100%; object-fit: cover;">
                             </a>
@@ -486,7 +483,7 @@
                     <div class="row g-5 justify-content-center align-items-center">
                         <div class="col-md-5 text-center">
                             <img src="https://www.itgovernance.co.uk/images/soc2-infopage.png" alt="SOC2 Compliant" class="img-fluid" style="max-height: 150px;">
-                            <p class="mt-3 fw-medium">We are SOC2 compliant (the American equivalent of ISO 27001).</p>
+                            <p class="mt-3 fw-medium">We are SOC2 compliant<br>(the American equivalent of ISO 27001).</p>
                         </div>
                         <div class="col-md-5 text-center">
                             <img src="https://cezannehr.com/wp-content/uploads/2018/09/GDPR-compliant_logo@2x.png" alt="GDPR Compliant" class="img-fluid" style="max-height: 150px;">
@@ -530,11 +527,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <h2>OUR MISSION</h2>
-                        <blockquote class="blockquote text-center my-5">
-                           <p class="mb-2 fst-italic fs-5">"Our goal is to make carbon accounting for your business feel so easy you'll forget it's there."</p>
-                           <footer class="blockquote-footer">Pieterjan Muller, Co-Founder Emmy.earth</footer>
-                        </blockquote>
-                        <p class="fs-5 text-center" style="line-height: 1.8;">With Emmy we want to empower businesses with truly effortless sustainability data management, at an affordable and reasonable cost. We see a future where complex data entry and manual processes are relics of the past. By pioneering fully automated platforms, we aim to deliver accurate, real-time insights, enabling our clients to focus on strategic action, not data wrangling.</p>
+                        <p class="fs-5 text-center" style="line-height: 1.8; margin-top: 3rem;">With Emmy we want to empower businesses with truly effortless sustainability data management, at an affordable and reasonable cost. We see a future where complex data entry and manual processes are relics of the past. By pioneering fully automated platforms, we aim to deliver accurate, real-time insights, enabling our clients to focus on strategic action, not data wrangling.</p>
                         
                         <hr class="my-5">
                         
