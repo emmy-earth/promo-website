@@ -683,7 +683,7 @@
                 item.addEventListener('click', function(event) {
                     event.preventDefault();
                     const subject = this.innerText;
-                    const body = `Hi Emmy.earth team,\n\nI'm interested in the following:\n${subject}\n\nLooking forward to hearing from you.`;
+                    const body = `Hi Emmy,\n\nI'm interested in the following:\n${subject}\n\nLooking forward to hearing from you.`;
                     const mailtoLink = `mailto:info@emmy.earth?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                     window.location.href = mailtoLink;
                 });
