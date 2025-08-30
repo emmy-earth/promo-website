@@ -166,13 +166,18 @@
             list-style: none;
             padding-left: 0;
         }
+        .section-pitch li {
+            position: relative;
+            padding-left: 1.5em; /* Adjust this value to move text right */
+        }
         .section-pitch li:before {
             content: '✓';
             color: var(--emmy-green);
             font-weight: bold;
             display: inline-block;
             width: 1em;
-            margin-left: -1em;
+            position: absolute;
+            left: 0; /* Align tick mark to the left */
         }
         .feature-box {
             background-color: #ffffff;
