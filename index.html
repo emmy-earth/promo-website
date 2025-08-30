@@ -154,7 +154,7 @@
             margin-bottom: 1.5rem;
             color: var(--emmy-dark);
         }
-        #scope1-2 h2, #scope3 h2 {
+        #scope1-2 h2, #scope3 h2, #other-services h2 {
             font-size: 2.8rem;
         }
         .section-pitch {
@@ -305,6 +305,7 @@
                             <ul class="dropdown-menu" aria-labelledby="solutionsDropdown">
                                 <li><a class="dropdown-item" href="#scope1-2" data-page="home">GHG scope 1&2</a></li>
                                 <li><a class="dropdown-item" href="#scope3" data-page="home">GHG scope 3</a></li>
+                                <li><a class="dropdown-item" href="#other-services" data-page="home">Other services</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -464,6 +465,32 @@
                 </div>
             </div>
 
+            <!-- 1d. Other services offered Section -->
+            <div id="other-services" class="py-5" style="background-color: #ffffff;">
+                <div class="container" style="padding: 80px 0;">
+                    <div class="mb-5">
+                        <h2>Other services offered</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="section-pitch">
+                                <ul class="mb-4" style="font-size: 1.1rem;">
+                                    <li><strong style="color: var(--emmy-green);">Product Carbon Footprint (PCF) or Life Cycle Analysis (LCA) calculations</strong></li>
+                                    <li style="list-style: none; padding-left: 1.5em;">- Bottom up and/or top down approach</li>
+                                    <li style="list-style: none; padding-left: 1.5em;">- Aligned with ISO 14067, ISO 14040 and ISO 14044</li>
+                                    <li><strong style="color: var(--emmy-green);">Creating strategic CO2 roadmap</strong></li>
+                                    <li style="list-style: none; padding-left: 1.5em;">- For both CO2 scope 1&2, and CO2 scope 3</li>
+                                    <li><strong style="color: var(--emmy-green);">Support for CSRD reporting</strong></li>
+                                    <li><strong style="color: var(--emmy-green);">Automated water & waste consumption calculations</strong></li>
+                                    <li><strong style="color: var(--emmy-green);">Integration of Emmy with other software and platforms</strong></li>
+                                </ul>
+                                <p>Please schedule a call to receive more information about these offerings</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- New CTA Section -->
             <div class="py-5" style="background-color: #ffffff;">
                 <div class="container">
@@ -486,7 +513,7 @@
             </div>
 
 
-            <!-- 1d. Data Security Section -->
+            <!-- 1e. Data Security Section -->
             <div id="data-security" class="py-5" style="background-color: #ffffff;">
                 <div class="container" style="padding: 80px 0;">
                     <div class="text-center mb-5">
@@ -604,7 +631,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link, .navbar-brand, .btn-demo, .dropdown-item[data-page], button[data-page]');
+            const navLinks = document.querySelectorAll('.nav-link, .navbar-brand, .btn-demo, .dropdown-item[data-page]');
             const pages = document.querySelectorAll('main > section');
             const nav = document.querySelector('.navbar');
 
