@@ -683,7 +683,7 @@
                 });
                 
                 // If there's an anchor, scroll to it
-                if (anchor) {
+                if (anchor && pageId === 'home' && anchor !== 'home') {
                     const anchorElement = document.getElementById(anchor);
                     if (anchorElement) {
                         // Use a timeout to ensure the page is visible before scrolling
