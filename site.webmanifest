@@ -1,0 +1,69 @@
+{
+  "name": "Emmy.earth - Automated Carbon Accounting",
+  "short_name": "Emmy.earth",
+  "description": "Automated carbon accounting platform with AI-powered carbon analyst Emmy",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#34D399",
+  "background_color": "#F9FAFB",
+  "lang": "en",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Get Demo",
+      "short_name": "Demo",
+      "description": "Get a demo of Emmy's carbon accounting platform",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "favicon-32x32.png",
+          "sizes": "32x32"
+        }
+      ]
+    },
+    {
+      "name": "Business Case",
+      "short_name": "Business",
+      "description": "View the business case for automated carbon accounting",
+      "url": "/#business-case",
+      "icons": [
+        {
+          "src": "favicon-32x32.png",
+          "sizes": "32x32"
+        }
+      ]
+    }
+  ]
+}
