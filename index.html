@@ -540,7 +540,7 @@
                             <div class="cta-section d-md-flex justify-content-around align-items-center text-center">
                                 <div class="mb-3 mb-md-0">
                                     <p class="h5 mb-2 fw-bold">Curious for the business case?</p>
-                                    <button class="btn btn-dark" data-page="business-case">View Business Case</button>
+                                    <a href="#business-case" class="btn btn-dark" data-page="business-case">View Business Case</a>
                                 </div>
                                 <div class="vr mx-4 d-none d-md-block"></div>
                                 <div>
@@ -672,7 +672,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link, .navbar-brand, .btn-demo, .dropdown-item[data-page]');
+            const navLinks = document.querySelectorAll('.nav-link, .navbar-brand, .btn-demo, .dropdown-item[data-page], a[data-page]');
             const pages = document.querySelectorAll('main > section');
             const nav = document.querySelector('.navbar');
 
