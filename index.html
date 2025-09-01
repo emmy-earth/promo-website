@@ -179,6 +179,9 @@
             position: absolute;
             left: 0; /* Align tick mark to the left */
         }
+        .dash-list li:before {
+            content: none; /* Remove the checkmark for dash items */
+        }
         .feature-box {
             background-color: #ffffff;
             border: 1px solid #e5e7eb;
@@ -481,10 +484,27 @@
                             <div class="section-pitch">
                                 <ul class="mb-4" style="font-size: 1.1rem;">
                                     <li><strong style="color: var(--emmy-green);">Product Carbon Footprint (PCF) or Life Cycle Analysis (LCA) calculations</strong></li>
-                                    <li style="list-style: none; padding-left: 1.5em;">- Bottom up and/or top down approach</li>
-                                    <li style="list-style: none; padding-left: 1.5em;">- Aligned with ISO 14067, ISO 14040 and ISO 14044</li>
+                                </ul>
+                                <ul class="mb-2 ms-3 dash-list" style="font-size: 1.1rem; list-style: none; padding-left: 0; margin-top: -1.5rem;">
+                                    <li style="position: relative; padding-left: 1.5em;">
+                                        <span style="position: absolute; left: 0; color: var(--emmy-text-light);">-</span>
+                                        Bottom up and/or top down approach
+                                    </li>
+                                    <li style="position: relative; padding-left: 1.5em;">
+                                        <span style="position: absolute; left: 0; color: var(--emmy-text-light);">-</span>
+                                        Aligned with ISO 14067, ISO 14040 and ISO 14044
+                                    </li>
+                                </ul>
+                                <ul class="mb-4" style="font-size: 1.1rem;">
                                     <li><strong style="color: var(--emmy-green);">Creating strategic CO2 roadmap</strong></li>
-                                    <li style="list-style: none; padding-left: 1.5em;">- For both CO2 scope 1&2, and CO2 scope 3</li>
+                                </ul>
+                                <ul class="mb-2 ms-3 dash-list" style="font-size: 1.1rem; list-style: none; padding-left: 0; margin-top: -1.5rem;">
+                                    <li style="position: relative; padding-left: 1.5em;">
+                                        <span style="position: absolute; left: 0; color: var(--emmy-text-light);">-</span>
+                                        For both CO2 scope 1&2, and CO2 scope 3
+                                    </li>
+                                </ul>
+                                <ul class="mb-4" style="font-size: 1.1rem;">
                                     <li><strong style="color: var(--emmy-green);">Support for CSRD reporting</strong></li>
                                     <li><strong style="color: var(--emmy-green);">Automated water & waste consumption calculations</strong></li>
                                     <li><strong style="color: var(--emmy-green);">Integration of Emmy with other software and platforms</strong></li>
