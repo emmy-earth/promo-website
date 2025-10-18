@@ -1,0 +1,44 @@
+---
+alwaysApply: true
+---
+
+# Emmy.earth - Automated Carbon Accounting Platform
+
+## Project
+Emmy.earth is a promotional website for an AI-powered carbon accounting platform that automates CO2 data collection and calculation for businesses.
+
+## Tech Stack
+- Static site generator: Jekyll
+- Frontend: HTML, CSS (Bootstrap 5), JavaScript (minimal)
+- Styling: Bootstrap 5, Custom CSS with CSS variables
+- Components: SimpleLightbox for image galleries
+
+## Structure
+
+```
+.
+|-- _config.yml
+|-- _includes (Reusable components)
+|   |-- footer.html
+|   `-- nav.html
+|-- _layouts (Main layout with header, nav, footer)
+|   `-- default.html
+|-- assets
+|   `-- images
+|       |-- android-chrome-192x192.png
+|       |-- android-chrome-512x512.png
+|       |-- apple-touch-icon.png
+|       |-- Emmy_logo_and_name_white.png
+|       |-- ...
+|-- business-case.html
+|-- CNAME
+|-- contact.html
+|-- index.html
+|-- legacy
+|   `-- index.old.html
+|-- mission.html
+`-- site.webmanifest
+```
+
+## Deployment
+Static site deployed to emmy.earth domain via GitHub Pages

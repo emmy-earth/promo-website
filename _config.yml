@@ -1,0 +1,33 @@
+title: "Emmy.earth - Automated Carbon Accounting"
+description: "Automated carbon accounting platform with AI-powered carbon analyst Emmy. Stop collecting invoices manually - get 100% automated CO2 data collection & calculation."
+url: "https://emmy.earth"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Collections
+collections:
+  - pages
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .bundle/
+
+# Include files
+include:
+  - _pages
+
+# Sass settings
+sass:
+  style: compressed

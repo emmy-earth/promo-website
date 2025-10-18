@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmy.earth - Automated Carbon Accounting</title>
+    
+    <!-- Favicon and Web App Manifest -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <meta name="theme-color" content="#34D399">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Emmy.earth">
+    
+    <!-- SEO and Social Media Meta Tags -->
+    <meta name="description" content="Automated carbon accounting platform with AI-powered carbon analyst Emmy. Stop collecting invoices manually - get 100% automated CO2 data collection & calculation.">
+    <meta name="keywords" content="carbon accounting, automated, AI, sustainability, GHG scope 1, scope 2, scope 3, emission factors, audit reports">
+    <meta name="author" content="Emmy.earth by ProBackup B.V.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://emmy.earth/">
+    <meta property="og:title" content="Emmy.earth - Automated Carbon Accounting">
+    <meta property="og:description" content="Stop collecting invoices manually. Meet Emmy – your AI-powered carbon analyst for 100% automated CO2 data collection & calculation.">
+    <meta property="og:image" content="https://emmy.earth/assets/images/logo_rectangle.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://emmy.earth/">
+    <meta property="twitter:title" content="Emmy.earth - Automated Carbon Accounting">
+    <meta property="twitter:description" content="Stop collecting invoices manually. Meet Emmy – your AI-powered carbon analyst for 100% automated CO2 data collection & calculation.">
+    <meta property="twitter:image" content="https://emmy.earth/assets/images/logo_rectangle.png">
+    
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- SimpleLightbox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplelightbox@2.14.2/dist/simple-lightbox.min.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --emmy-green: #34D399;
+            --emmy-light-green: #A7F3D0;
+            --emmy-dark: #111827;
+            --emmy-light-gray: #F9FAFB;
+            --emmy-gray: #F3F4F6;
+            --emmy-text: #374151;
+            --emmy-text-light: #6B7280;
+            --emmy-orange: #F2CBAE;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--emmy-light-gray);
+            color: var(--emmy-text);
+        }
+
+        /* --- Navigation --- */
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #dee2e6;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--emmy-dark);
+            display: flex;
+            align-items: center;
+        }
+        .navbar-brand img {
+            height: 40px;
+            width: auto;
+            max-width: 150px;
+        }
+        .navbar-brand .green-dot {
+            color: var(--emmy-green);
+        }
+        
+        /* Mobile responsive logo sizing */
+        @media (max-width: 767.98px) {
+            .navbar-brand img {
+                height: 32px;
+                max-width: 120px;
+            }
+        }
+
+        .nav-link {
+            color: var(--emmy-text);
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            color: var(--emmy-dark);
+        }
+        .nav-link.active {
+            color: #FFFFFF;
+            background-color: var(--emmy-orange);
+        }
+
+        .dropdown-item:active {
+            background-color: var(--emmy-green);
+            color: white;
+        }
+
+        .btn-demo {
+            background-color: var(--emmy-green);
+            color: white;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            padding: 0.6rem 1.2rem;
+        }
+        .btn-demo:hover {
+            background-color: #2aa779;
+            color: white;
+        }
+
+        /* --- Page Sections --- */
+        main > section {
+            padding: 80px 0;
+            display: none; /* Hidden by default */
+        }
+        main > section.active {
+            display: block; /* Shown when active */
+        }
+
+        #home {
+            padding: 0;
+        }
+
+        /* --- Hero Section --- */
+        #intro {
+            background-color: #1A355A;
+            color: #ffffff;
+            padding: 80px 0;
+        }
+        #intro h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        #intro .lead {
+            font-size: 1.5rem;
+            color: #e5e7eb;
+        }
+        .video-placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #374151;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #9ca3af;
+        }
+        #intro blockquote {
+            border-left: 4px solid var(--emmy-green);
+            padding-left: 1.5rem;
+            margin-top: 3rem;
+            font-style: italic;
+            color: #d1d5db;
+            position: relative;
+            font-size: 1.125rem;
+        }
+
+        /* --- General Section Styling --- */
+        h2 {
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--emmy-dark);
+        }
+        #scope1-2 h2, #scope3 h2, #other-services h2 {
+            font-size: 2.8rem;
+        }
+        .section-pitch {
+            font-size: 1.1rem;
+            color: var(--emmy-text-light);
+            line-height: 1.8;
+        }
+        .section-pitch ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .section-pitch li {
+            position: relative;
+            padding-left: 1.5em; /* Adjust this value to move text right */
+        }
+        .section-pitch li:before {
+            content: '✓';
+            color: var(--emmy-green);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            position: absolute;
+            left: 0; /* Align tick mark to the left */
+        }
+        .dash-list li:before {
+            content: none; /* Remove the checkmark for dash items */
+        }
+        .feature-box {
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--emmy-green);
+            margin-bottom: 1rem;
+        }
+        .feature-box h4 {
+            font-weight: 600;
+            color: var(--emmy-dark);
+            font-size: 1.1rem;
+        }
+        .cta-section {
+            background-color: var(--emmy-gray);
+            border-radius: 1rem;
+            padding: 2rem;
+        }
+        .btn-outline-dark {
+            border-radius: 0.5rem;
+            font-weight: 500;
+            padding: 0.6rem 1.2rem;
+        }
+        .img-fluid {
+            border-radius: 1rem;
+        }
+        #contact blockquote img {
+            border-radius: 1rem;
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            cursor: default;
+        }
+
+        /* --- Business Case & Mission Pages --- */
+        #business-case h2, #mission h2, #contact h2 {
+            text-align: center;
+        }
+        .content-card {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .content-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .content-card li {
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .content-card li:last-child {
+            border-bottom: none;
+        }
+        .content-card li:before {
+            content: '✓';
+            color: var(--emmy-green);
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        /* --- Contact Page --- */
+        #contact .lead {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+            color: var(--emmy-text-light);
+        }
+        #contact blockquote {
+            border: none;
+            background-color: var(--emmy-gray);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            font-size: 1.25rem;
+            font-style: italic;
+            font-weight: 500;
+            color: var(--emmy-dark);
+            margin-top: 3rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--emmy-gray);
+            padding: 2rem 0;
+            font-size: 0.9rem;
+            color: var(--emmy-text-light);
+        }
+        footer a {
+            color: var(--emmy-text-light);
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: var(--emmy-dark);
+            text-decoration: underline;
+        }
+
+        .lightbox-trigger img {
+            cursor: pointer;
+            transition: opacity 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#home" data-page="home">
+                    <img src="assets/images/logo_rectangle.png" alt="Emmy.earth" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#home" data-page="home">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="solutionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Solutions
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="solutionsDropdown">
+                                <li><a class="dropdown-item" href="#scope1-2" data-page="home">GHG scope 1&2</a></li>
+                                <li><a class="dropdown-item" href="#scope3" data-page="home">GHG scope 3</a></li>
+                                <li><a class="dropdown-item" href="#other-services" data-page="home">Other services</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#business-case" data-page="business-case">Business case</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#mission" data-page="mission">Our mission</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact" data-page="contact">Contact</a>
+                        </li>
+                    </ul>
+                    <a href="#contact" data-page="contact" class="btn btn-demo d-none d-lg-inline-block">Get a demo</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Page -->
+        <section id="home" class="active">
+            <!-- 1a. Intro Section -->
+            <div id="intro">
+                <div class="container text-center">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <h1 class="mb-4">Automated carbon <br> accounting? Done.</h1>
+                            <p class="lead mb-5">
+                                <span style="color: var(--emmy-green);">Stop collecting invoices manually.</span> <br>
+                                Meet <span style="color: var(--emmy-green);">Emmy</span> – your AI-powered carbon analyst:
+                            </p>
+                            <div class="video-container mb-5">
+                                <iframe 
+                                    src="https://www.youtube.com/embed/fIXlh6X1uv0" 
+                                    title="Emmy.earth Demo Video"
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen
+                                    style="width: 100%; aspect-ratio: 16 / 9; border-radius: 1rem;">
+                                </iframe>
+                            </div>
+                            <blockquote>
+                                <p class="mb-0" style="font-size: 1.5rem;">Our goal is to make carbon accounting for your business feel so easy <br> you'll forget it's there - Pieterjan Muller, Co-Founder Emmy.earth</p>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1b. CO2 Scope 1&2 Section -->
+            <div id="scope1-2" class="py-5" style="background-color: #ffffff;">
+                <div class="container" style="padding: 80px 0;">
+                    <div class="mb-5">
+                        <h2>Our GHG scope 1&2 module</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="section-pitch">
+                                <p class="fw-bold" style="color: var(--emmy-green); font-size: 1.25rem;">No manual invoice collection required anymore!</p>
+                                <ul class="mb-4" style="font-size: 1.1rem;">
+                                    <li> Unlock 100% automated CO2 data collection & calculation</li>
+                                    <li> Cut audit time & fees (instant audit readiness)</li>
+                                    <li> Auto-generate reports & insights in a click</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center mt-5">
+                        <div class="col-lg-10">
+                            <a href="assets/images/flowchart_scope_1_2_white_v2.jpg" class="lightbox-trigger">
+                                <img src="assets/images/flowchart_scope_1_2_white_v2.jpg" alt="CO2 Scope 1&2 Process" class="img-fluid shadow-sm">
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="fw-bold mb-4" style="margin-top: 3.5rem;">Key features</h3>
+                    <div class="row mt-5 g-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="feature-box h-100">
+                                <div class="feature-icon"><i class="bi bi-receipt-cutoff"></i></div>
+                                <h4>Automated utility invoice scraping or API connection</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="feature-box h-100">
+                                <div class="feature-icon"><i class="bi bi-funnel"></i></div>
+                                <h4>Automated collection & matching of emission factors</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="feature-box h-100">
+                                <div class="feature-icon"><i class="bi bi-clipboard2-check"></i></div>
+                                <h4>Automated audit reports</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="feature-box h-100">
+                                <div class="feature-icon"><i class="bi bi-search-heart"></i></div>
+                                <h4>Automated data quality and completeness review</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1c. CO2 Scope 3 Section -->
+            <div id="scope3" class="py-5">
+                <div class="container" style="padding: 80px 0;">
+                    <div class="mb-5">
+                        <h2>Our GHG scope 3 module</h2>
+                    </div>
+                    <div class="row">
+                         <div class="col-lg-8">
+                            <div class="section-pitch">
+                                <p class="fw-bold" style="color: var(--emmy-green); font-size: 1.25rem;">No need to complete data-input templates anymore!</p>
+                                <ul class="mb-4" style="font-size: 1.1rem;">
+                                    <li>Unlock 100% automated CO2 scope 3 data-input template completion</li>
+                                    <li>Cut audit time & fees (instant audit readiness)</li>
+                                    <li>Auto-generate reports & insights in a click</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center mt-5">
+                        <div class="col-lg-10">
+                            <a href="assets/images/flowchart_scope_3_white_v2.jpg" class="lightbox-trigger">
+                                <img src="assets/images/flowchart_scope_3_white_v2.jpg" alt="CO2 Scope 3 Process" class="img-fluid shadow-sm" style="max-height: 585px; width: 100%; object-fit: cover;">
+                            </a>
+                        </div>
+                    </div>
+                     <h3 class="fw-bold mb-4" style="margin-top: 3.5rem;">Key features</h3>
+                     <div class="row mt-5 g-4">
+                        <div class="col-lg">
+                            <div class="feature-box h-100">
+                                <div class="feature-icon"><i class="bi bi-file-earmark-spreadsheet"></i></div>
+                                <h4>Automated completion of data collection templates</h4>
+                            </div>
+                        </div>
+                        <div class="col-lg">
+                            <div class="feature-box h-100">
+                                <div class="feature-icon"><i class="bi bi-broadcast"></i></div>
+                                <h4>Automated collection & matching of emission factors</h4>
+                            </div>
+                        </div>
+                        <div class="col-lg">
+                            <div class="feature-box h-100">
+                                <div class="feature-icon"><i class="bi bi-patch-check"></i></div>
+                                <h4>Automated audit reports</h4>
+                            </div>
+                        </div>
+                        <div class="col-lg">
+                            <div class="feature-box h-100">
+                                <div class="feature-icon"><i class="bi bi-journal-check"></i></div>
+                                <h4>Automated data quality and completeness review</h4>
+                            </div>
+                        </div>
+                         <div class="col-lg">
+                            <div class="feature-box h-100">
+                                <div class="feature-icon"><i class="bi bi-lightbulb"></i></div>
+                                <h4>Fill data gaps with intelligent data estimates</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1d. Other services offered Section -->
+            <div id="other-services" class="py-5" style="background-color: #ffffff;">
+                <div class="container" style="padding: 80px 0;">
+                    <div class="mb-5">
+                        <h2>Other services offered</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="section-pitch">
+                                <ul class="mb-4" style="font-size: 1.1rem;">
+                                    <li><strong style="color: var(--emmy-green);">Product Carbon Footprint (PCF) or Life Cycle Analysis (LCA) calculations</strong></li>
+                                </ul>
+                                <ul class="mb-2 ms-3 dash-list" style="font-size: 1.1rem; list-style: none; padding-left: 0; margin-top: -1.5rem;">
+                                    <li style="position: relative; padding-left: 1.5em;">
+                                        <span style="position: absolute; left: 0; color: var(--emmy-text-light);">-</span>
+                                        Bottom up and/or top down approach
+                                    </li>
+                                    <li style="position: relative; padding-left: 1.5em;">
+                                        <span style="position: absolute; left: 0; color: var(--emmy-text-light);">-</span>
+                                        Aligned with ISO 14067, ISO 14040 and ISO 14044
+                                    </li>
+                                </ul>
+                                <ul class="mb-4" style="font-size: 1.1rem;">
+                                    <li><strong style="color: var(--emmy-green);">Creating strategic CO2 roadmap</strong></li>
+                                </ul>
+                                <ul class="mb-2 ms-3 dash-list" style="font-size: 1.1rem; list-style: none; padding-left: 0; margin-top: -1.5rem;">
+                                    <li style="position: relative; padding-left: 1.5em;">
+                                        <span style="position: absolute; left: 0; color: var(--emmy-text-light);">-</span>
+                                        For both CO2 scope 1&2, and CO2 scope 3
+                                    </li>
+                                </ul>
+                                <ul class="mb-4" style="font-size: 1.1rem;">
+                                    <li><strong style="color: var(--emmy-green);">Support for CSRD reporting</strong></li>
+                                    <li><strong style="color: var(--emmy-green);">Automated water & waste consumption calculations</strong></li>
+                                    <li><strong style="color: var(--emmy-green);">Integration of Emmy with other software and platforms</strong></li>
+                                </ul>
+                                <p>Please schedule a call to receive more information about these offerings</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New CTA Section -->
+            <div class="py-5" style="background-color: #ffffff;">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="cta-section d-md-flex justify-content-around align-items-center text-center">
+                                <div class="mb-3 mb-md-0">
+                                    <p class="h5 mb-2 fw-bold">Curious for the business case?</p>
+                                    <a href="#business-case" class="btn btn-dark" data-page="business-case">View Business Case</a>
+                                </div>
+                                <div class="vr mx-4 d-none d-md-block"></div>
+                                <div>
+                                    <p class="h5 mb-2 fw-bold">Want a quote or demo?</p>
+                                    <a href="mailto:info@emmy.earth" class="btn btn-outline-dark">Get in contact</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 1e. Data Security Section -->
+            <div id="data-security" class="py-5" style="background-color: #ffffff;">
+                <div class="container" style="padding: 80px 0;">
+                    <div class="text-center mb-5">
+                        <h2>Data Security</h2>
+                        <p class="lead" style="max-width: 700px; margin: auto; color: var(--emmy-text-light);">As we manage data, security is at the core of what we do.</p>
+                    </div>
+                    <div class="row g-5 justify-content-center align-items-center">
+                        <div class="col-md-5 text-center">
+                            <img src="https://www.itgovernance.co.uk/images/soc2-infopage.png" alt="SOC2 Compliant" class="img-fluid" style="max-height: 150px;">
+                            <p class="mt-3 fw-medium">We are SOC2 compliant<br>(the American equivalent of ISO 27001).</p>
+                        </div>
+                        <div class="col-md-5 text-center">
+                            <img src="https://cezannehr.com/wp-content/uploads/2018/09/GDPR-compliant_logo@2x.png" alt="GDPR Compliant" class="img-fluid" style="max-height: 150px;">
+                            <p class="mt-3 fw-medium">We are GDPR compliant.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Business Case Page -->
+        <section id="business-case">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2>Business Case</h2>
+                        <div class="content-card mt-4">
+                            <p class="lead">Except for being a 100% worry-free, we estimate Emmy will:</p>
+                            <p class="display-6 fw-bold text-center my-4" style="color: var(--emmy-green);">Free up 0.5 to 3 FTEs of employee time.<br/><small class="fs-6 text-muted fw-normal fst-italic">(depending on your company size)</small></p>
+                            <p class="fw-bold">Additionally:</p>
+                            <ul>
+                                <li>You’ll save on audit and emission factor database fees</li>
+                                <li>Don't risk losing crucial carbon data and knowledge with employee turnover</li>
+                                <li>Avoid reporting errors</li>
+                                <li>Increase reporting frequency</li>
+                            </ul>
+                        </div>
+                        <div class="text-center mt-5">
+                            <p class="mb-2" style="font-size: 1.1rem;">Want a granular breakdown of the business case for your company?</p>
+                            <p class="mb-3" style="font-size: 1.1rem;">We are happy to provide it during a demo call.</p>
+                            <a href="mailto:info@emmy.earth" class="btn btn-demo">Get a demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Mission Page -->
+        <section id="mission">
+             <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2>Our mission</h2>
+                        <p class="fs-5 text-center" style="line-height: 1.8; margin-top: 3rem;">With Emmy we want to empower businesses with <strong style="color: var(--emmy-green);">truly effortless sustainability data management, at an affordable and reasonable cost</strong>. We see a future where complex data entry and manual processes are relics of the past. By pioneering <strong style="color: var(--emmy-green);">fully automated platforms</strong>, we aim to deliver accurate, real-time insights, enabling our clients to focus on strategic action, not data wrangling.</p>
+                        
+                        <hr class="my-5">
+                        
+                        <h2 class="text-center">Our company</h2>
+                        <p class="text-center mt-3 fs-5" style="line-height: 1.8;">We are a Belgian <strong style="color: var(--emmy-green);">software company of AI & sustainability enthusiasts</strong>. We operate within the software group ProBackup B.V.. Would you like to learn more about us? Don’t hesitate to contact us.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Page -->
+        <section id="contact">
+            <div class="container">
+                 <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="text-center">
+                            <h2>Contact us</h2>
+                            <p class="lead">Ready to automate your carbon accounting? Let's talk, press the button below or send directly an email to: info@emmy.earth</p>
+                        </div>
+                        <div class="text-center my-5">
+                             <div class="dropdown">
+                                <button class="btn btn-lg btn-demo dropdown-toggle" type="button" id="contactDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-envelope-paper me-2"></i> Send us an email
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="contactDropdown" id="contactOptions">
+                                    <li><a class="dropdown-item" href="#">I want a demo</a></li>
+                                    <li><a class="dropdown-item" href="#">I want a quote</a></li>
+                                    <li><a class="dropdown-item" href="#">Other</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <blockquote class="text-center">
+                            You boss Emmy. Emmy bosses your data.
+                            <img src="assets/images/emmy_waiving.jpg" alt="Emmy waving" class="img-fluid mt-4 rounded">
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-2">&copy; 2025 Emmy by ProBackup B.V.</p>
+            <p class="mb-0">
+                <a href="#" class="mx-2">Privacy Policy</a> &middot;
+                <a href="#" class="mx-2">Terms & Conditions</a> &middot;
+                <a href="mailto:info@Emmy.earth" class="mx-2">info@Emmy.earth</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- SimpleLightbox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/simplelightbox@2.14.2/dist/simple-lightbox.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link, .navbar-brand, .btn-demo, .dropdown-item[data-page], a[data-page]');
+            const pages = document.querySelectorAll('main > section');
+            const nav = document.querySelector('.navbar');
+
+            function showPage(pageId, anchor) {
+                // Hide all pages
+                pages.forEach(page => page.classList.remove('active'));
+
+                // Show the target page
+                const targetPage = document.getElementById(pageId);
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                } else {
+                    // Default to home if page not found
+                    document.getElementById('home').classList.add('active');
+                }
+
+                // Handle navigation link active state
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    const linkPage = link.getAttribute('href').substring(1);
+                    if (linkPage === pageId || (link.dataset.page && link.dataset.page === pageId)) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // If there's an anchor, scroll to it
+                if (anchor && pageId === 'home' && anchor !== 'home') {
+                    const anchorElement = document.getElementById(anchor);
+                    if (anchorElement) {
+                        // Use a timeout to ensure the page is visible before scrolling
+                        setTimeout(() => {
+                           anchorElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }, 100);
+                    }
+                } else {
+                    // Otherwise, scroll to top
+                    window.scrollTo(0, 0);
+                }
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    const pageId = this.dataset.page;
+                    
+                    if (pageId) {
+                         e.preventDefault();
+                         const anchor = href && href.includes('#') && href.length > 1 ? href.substring(1) : pageId;
+                         
+                         // Special handling for dropdown items pointing to anchors on home
+                         if(pageId === 'home' && anchor !== 'home'){
+                             showPage('home', anchor);
+                         } else {
+                             showPage(pageId, pageId);
+                         }
+                    }
+                });
+            });
+
+            // Initial page load
+            const initialHash = window.location.hash;
+            if (initialHash) {
+                const link = document.querySelector(`a[href="${initialHash}"]`);
+                if(link && link.dataset.page) {
+                     showPage(link.dataset.page, initialHash.substring(1));
+                } else {
+                     showPage('home');
+                }
+            } else {
+                 showPage('home');
+            }
+
+
+            // Contact form dropdown logic
+            document.querySelectorAll('#contactOptions .dropdown-item').forEach(item => {
+                item.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const subject = this.innerText;
+                    const body = `Hi Emmy,\n\nI'm interested in the following:\n${subject}\n\nLooking forward to hearing from you.`;
+                    const mailtoLink = `mailto:info@emmy.earth?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    window.location.href = mailtoLink;
+                });
+            });
+
+            // Initialize lightbox
+            new SimpleLightbox('.lightbox-trigger');
+        });
+    </script>
+</body>
+</html>
