@@ -45,7 +45,7 @@
       "name": "Get Demo",
       "short_name": "Demo",
       "description": "Get a demo of Emmy's carbon accounting platform",
-      "url": "/#contact",
+      "url": "/contact/",
       "icons": [
         {
           "src": "favicon-32x32.png",
@@ -57,7 +57,7 @@
       "name": "Business Case",
       "short_name": "Business",
       "description": "View the business case for automated carbon accounting",
-      "url": "/#business-case",
+      "url": "/business-case/",
       "icons": [
         {
           "src": "favicon-32x32.png",
