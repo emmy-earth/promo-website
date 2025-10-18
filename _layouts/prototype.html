@@ -1,0 +1,88 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title }}</title>
+  {% if page.description or site.description %}
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  {% endif %}
+  <link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/images/android-chrome-192x192.png">
+  <link rel="apple-touch-icon" href="{{ site.baseurl }}/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="{{ site.baseurl }}/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/v4?plugins=forms,typography"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            body: ['"Inter"', 'sans-serif'],
+          },
+          colors: {
+            emmy: {
+              DEFAULT: '#10f0b4',
+              dark: '#0f766e',
+              light: '#bffbea',
+              neon: '#16f2b0'
+            },
+          },
+          boxShadow: {
+            glow: '0 20px 60px -25px rgba(22, 242, 176, 0.55)',
+          },
+          borderRadius: {
+            xl: '1.75rem',
+          },
+          maxWidth: {
+            prose: '72ch',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top left, rgba(16, 240, 180, 0.12), transparent 45%),
+                  radial-gradient(circle at 80% 20%, rgba(79, 70, 229, 0.18), transparent 50%),
+                  #05060b;
+      min-height: 100vh;
+    }
+    .glass-card {
+      background: rgba(13, 17, 23, 0.72);
+      backdrop-filter: blur(26px);
+    }
+    .noise-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="400" height="400" viewBox="0 0 400 400"%3E%3Cdefs%3E%3Cfilter id="n" x="0" y="0" width="100%25" height="100%25"%3E%3CfeTurbulence baseFrequency="1.2" seed="8" type="fractalNoise" stitchTiles="stitch"/%3E%3CfeColorMatrix type="saturate" values="0"/%3E%3C/ filter%3E%3C/defs%3E%3Crect width="100%25" height="100%25" filter="url(%23n)" opacity="0.08"/%3E%3C/svg%3E');
+      opacity: 0.35;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="text-slate-100 antialiased">
+  <main class="relative overflow-hidden">
+    {{ content }}
+  </main>
+  <footer class="border-t border-white/5 bg-black/60 py-10">
+    <div class="mx-auto flex max-w-6xl flex-col gap-4 px-6 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
+      <p>&copy; {{ 'now' | date: '%Y' }} Emmy.earth. All rights reserved.</p>
+      <div class="flex gap-4">
+        <a href="mailto:info@emmy.earth" class="transition hover:text-slate-200">Contact</a>
+        <a href="https://www.linkedin.com/company/emmy-earth" class="transition hover:text-slate-200">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
