@@ -1,0 +1,179 @@
+---
+layout: prototype_2
+title: "Contact Us - Emmy.earth"
+description: "Get in touch with Emmy.earth for automated carbon accounting solutions. Ready to automate your carbon accounting? Let's talk about your needs."
+---
+
+<section class="relative overflow-hidden bg-white py-24 text-slate-900">
+  <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(22,242,176,0.18),rgba(56,189,248,0)_65%)] opacity-80"></div>
+  <div class="relative mx-auto max-w-4xl px-6">
+    <div class="space-y-12 text-center" data-animate>
+      <div class="space-y-6">
+        <h2 class="font-display text-4xl text-slate-900 sm:text-5xl">Contact us</h2>
+        <p class="text-lg leading-relaxed text-slate-600">Ready to automate your carbon accounting? Let's talk, press the button below or send directly an email to: info@emmy.earth</p>
+      </div>
+      <div class="mx-auto max-w-lg space-y-6">
+        <div class="relative" data-dropdown>
+          <button type="button" id="contactDropdownButton" class="inline-flex w-full items-center justify-between gap-3 rounded-full border border-emerald-200/70 bg-emerald-50 px-8 py-3 text-base font-semibold text-emerald-700 shadow-card transition hover:-translate-y-0.5 hover:border-emerald-300 hover:bg-emerald-100/80" data-dropdown-button aria-haspopup="true" aria-expanded="false" aria-controls="contactDropdownMenu">
+            <span class="inline-flex items-center gap-3">
+              <i class="bi bi-envelope-paper text-lg"></i>
+              Send us an email
+            </span>
+            <i class="bi bi-chevron-down text-base transition-transform duration-200" data-dropdown-icon></i>
+          </button>
+          <ul id="contactDropdownMenu" class="invisible absolute left-0 right-0 z-20 mt-3 w-full translate-y-2 overflow-hidden rounded-4xl border border-slate-200 bg-white/95 p-2 text-left opacity-0 shadow-card backdrop-blur transition-all duration-150 ease-out" data-dropdown-menu aria-labelledby="contactDropdownButton" aria-hidden="true" role="menu">
+            <li>
+              <a class="group flex w-full items-center justify-between gap-3 rounded-3xl border border-transparent px-4 py-3 text-base text-slate-600 transition hover:border-emerald-200 hover:bg-emerald-50/80 hover:text-emerald-700" href="mailto:info@emmy.earth?subject=Demo%20request" role="menuitem">
+                I want a demo
+                <i class="bi bi-arrow-up-right text-sm opacity-0 transition-opacity duration-150 group-hover:opacity-100"></i>
+              </a>
+            </li>
+            <li>
+              <a class="group flex w-full items-center justify-between gap-3 rounded-3xl border border-transparent px-4 py-3 text-base text-slate-600 transition hover:border-emerald-200 hover:bg-emerald-50/80 hover:text-emerald-700" href="mailto:info@emmy.earth?subject=Quote%20request" role="menuitem">
+                I want a quote
+                <i class="bi bi-arrow-up-right text-sm opacity-0 transition-opacity duration-150 group-hover:opacity-100"></i>
+              </a>
+            </li>
+            <li>
+              <a class="group flex w-full items-center justify-between gap-3 rounded-3xl border border-transparent px-4 py-3 text-base text-slate-600 transition hover:border-emerald-200 hover:bg-emerald-50/80 hover:text-emerald-700" href="mailto:info@emmy.earth?subject=General%20enquiry" role="menuitem">
+                Other
+                <i class="bi bi-arrow-up-right text-sm opacity-0 transition-opacity duration-150 group-hover:opacity-100"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <blockquote class="mx-auto max-w-xl space-y-6 rounded-5xl border border-emerald-100 bg-white/70 px-8 py-10 text-lg leading-relaxed text-slate-700 shadow-aurora">
+        <p class="font-semibold text-emerald-600">You boss Emmy. Emmy bosses your data.</p>
+        <img src="{{ site.baseurl }}/assets/images/emmy_waiving.jpg" alt="Emmy waving" class="mx-auto w-full max-w-sm rounded-4xl border border-emerald-100 object-cover shadow-card" />
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    const dropdowns = document.querySelectorAll('[data-dropdown]');
+
+    if (!dropdowns.length) {
+      return;
+    }
+
+    const closeDropdown = (dropdown) => {
+      const button = dropdown.querySelector('[data-dropdown-button]');
+      const menu = dropdown.querySelector('[data-dropdown-menu]');
+      const icon = dropdown.querySelector('[data-dropdown-icon]');
+
+      if (!button || !menu) {
+        return;
+      }
+
+      button.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
+      dropdown.dataset.open = 'false';
+      menu.classList.add('invisible');
+      menu.classList.add('opacity-0');
+      menu.classList.add('translate-y-2');
+      if (icon) {
+        icon.classList.remove('rotate-180');
+      }
+
+      window.setTimeout(() => {
+        if (dropdown.dataset.open === 'false') {
+          menu.style.pointerEvents = 'none';
+        }
+      }, 160);
+    };
+
+    const openDropdown = (dropdown) => {
+      const button = dropdown.querySelector('[data-dropdown-button]');
+      const menu = dropdown.querySelector('[data-dropdown-menu]');
+      const icon = dropdown.querySelector('[data-dropdown-icon]');
+
+      if (!button || !menu) {
+        return;
+      }
+
+      dropdown.dataset.open = 'true';
+      button.setAttribute('aria-expanded', 'true');
+      menu.setAttribute('aria-hidden', 'false');
+      menu.style.pointerEvents = 'auto';
+      menu.classList.remove('invisible');
+      requestAnimationFrame(() => {
+        menu.classList.remove('opacity-0');
+        menu.classList.remove('translate-y-2');
+      });
+      if (icon) {
+        icon.classList.add('rotate-180');
+      }
+
+      const firstItem = menu.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
+      if (firstItem) {
+        firstItem.focus({ preventScroll: true });
+      }
+    };
+
+    dropdowns.forEach((dropdown) => {
+      dropdown.dataset.open = 'false';
+      const button = dropdown.querySelector('[data-dropdown-button]');
+      const menu = dropdown.querySelector('[data-dropdown-menu]');
+
+      if (!button || !menu) {
+        return;
+      }
+
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const isOpen = dropdown.dataset.open === 'true';
+        if (isOpen) {
+          closeDropdown(dropdown);
+        } else {
+          dropdowns.forEach((other) => {
+            if (other !== dropdown) {
+              closeDropdown(other);
+            }
+          });
+          openDropdown(dropdown);
+        }
+      });
+
+      dropdown.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          const isOpen = dropdown.dataset.open === 'true';
+          if (isOpen) {
+            event.preventDefault();
+            closeDropdown(dropdown);
+            button.focus({ preventScroll: true });
+          }
+        }
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!dropdown.contains(event.target)) {
+          closeDropdown(dropdown);
+        }
+      });
+
+      menu.addEventListener('keydown', (event) => {
+        const focusable = Array.from(menu.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])'));
+        const currentIndex = focusable.indexOf(document.activeElement);
+
+        if (event.key === 'ArrowDown') {
+          event.preventDefault();
+          const nextIndex = (currentIndex + 1) % focusable.length;
+          focusable[nextIndex]?.focus({ preventScroll: true });
+        }
+
+        if (event.key === 'ArrowUp') {
+          event.preventDefault();
+          const prevIndex = (currentIndex - 1 + focusable.length) % focusable.length;
+          focusable[prevIndex]?.focus({ preventScroll: true });
+        }
+      });
+
+      closeDropdown(dropdown);
+    });
+  })();
+</script>
+

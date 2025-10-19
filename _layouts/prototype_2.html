@@ -135,18 +135,11 @@
 </head>
 <body class="bg-slate-950 text-slate-100 antialiased">
   <div class="noise-overlay"></div>
+  {% include nav_tailwind.html %}
   <main class="relative">
     {{ content }}
   </main>
-  <footer class="relative border-t border-white/10 bg-slate-950/80 py-12 backdrop-blur-2xl">
-    <div class="mx-auto flex max-w-6xl flex-col gap-6 px-6 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
-      <p>&copy; {{ 'now' | date: '%Y' }} Emmy.earth. All rights reserved.</p>
-      <div class="flex flex-wrap items-center gap-4">
-        <a href="mailto:info@emmy.earth" class="transition hover:text-slate-200">Contact</a>
-        <a href="https://www.linkedin.com/company/emmy-earth" class="transition hover:text-slate-200">LinkedIn</a>
-      </div>
-    </div>
-  </footer>
+  {% include footer_tailwind.html %}
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       if (window.SimpleLightbox) {
