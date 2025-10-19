@@ -1,0 +1,275 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title }}</title>
+  {%- if page.description or site.description -%}
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  {%- endif -%}
+  <link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/images/android-chrome-192x192.png">
+  <link rel="apple-touch-icon" href="{{ site.baseurl }}/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="{{ site.baseurl }}/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplelightbox@2/dist/simple-lightbox.min.css">
+  <script>
+    window.tailwind = window.tailwind || {};
+    window.tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', 'system-ui', 'sans-serif'],
+            display: ['"Space Grotesk"', 'ui-rounded', '"Inter"', 'sans-serif']
+          },
+          colors: {
+            emmy: {
+              jade: '#00c896',
+              aqua: '#38f5c0',
+              sky: '#9ae6ff',
+              breeze: '#ecfbff',
+              charcoal: '#0b1d33',
+              sand: '#f7fafc'
+            }
+          },
+          boxShadow: {
+            lift: '0 28px 80px -40px rgba(15, 23, 42, 0.25)',
+            beam: '0 18px 60px -30px rgba(0, 200, 150, 0.25)'
+          },
+          borderRadius: {
+            xl2: '1.5rem',
+            xl3: '2.25rem',
+            xl4: '3rem'
+          },
+          backgroundImage: {
+            'hero-light': 'radial-gradient(circle at 20% 20%, rgba(0, 200, 150, 0.12), transparent 55%), radial-gradient(circle at 80% 0%, rgba(56, 189, 248, 0.18), transparent 50%)',
+            'card-overlay': 'linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.65))'
+          },
+          keyframes: {
+            floatIn: {
+              '0%': { opacity: '0', transform: 'translateY(40px) scale(0.98)' },
+              '100%': { opacity: '1', transform: 'translateY(0) scale(1)' }
+            },
+            pulseRing: {
+              '0%': { transform: 'scale(0.95)', opacity: '0.6' },
+              '80%': { transform: 'scale(1.35)', opacity: '0' },
+              '100%': { opacity: '0' }
+            },
+            drift: {
+              '0%, 100%': { transform: 'translate3d(0, 0, 0)' },
+              '50%': { transform: 'translate3d(6px, -10px, 0)' }
+            }
+          },
+          animation: {
+            floatIn: 'floatIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+            pulseRing: 'pulseRing 3.4s ease-out infinite',
+            drift: 'drift 9s ease-in-out infinite'
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    :root {
+      color-scheme: light;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      min-height: 100dvh;
+      background:
+        linear-gradient(180deg, rgba(247, 250, 252, 0.9) 0%, rgba(255, 255, 255, 1) 32%, rgba(247, 250, 252, 1) 100%);
+      color: #0f172a;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(600px circle at var(--cursor-x, 50%) var(--cursor-y, 50%), rgba(0, 200, 150, 0.14), transparent 65%);
+      opacity: 0.75;
+      mix-blend-mode: screen;
+      transition: opacity 0.4s ease;
+      z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='220' height='220' viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M220 0H0V220' fill='none' stroke='rgba(15,23,42,0.08)' stroke-width='0.5'/%3E%3Cpath d='M0 0L220 220' stroke='rgba(56,189,248,0.06)' stroke-width='0.5'/%3E%3C/svg%3E");
+      background-size: 220px 220px;
+      opacity: 0.25;
+      mix-blend-mode: multiply;
+      z-index: 0;
+    }
+
+    .glass-card {
+      backdrop-filter: blur(22px);
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(32px) scale(0.985);
+      transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+      transition-delay: var(--delay, 0s);
+    }
+
+    [data-animate].is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .section-heading span {
+      background: linear-gradient(90deg, rgba(0, 200, 150, 0.18), rgba(56, 189, 248, 0.16));
+      border-radius: 9999px;
+      padding: 0.35rem 1rem;
+      color: rgba(15, 23, 42, 0.7);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .section-heading span::before {
+      content: '';
+      display: inline-block;
+      width: 0.4rem;
+      height: 0.4rem;
+      border-radius: 9999px;
+      background-color: rgba(0, 200, 150, 0.85);
+    }
+
+    .feature-chip {
+      position: relative;
+      isolation: isolate;
+      border-radius: 18px;
+      background: rgba(236, 252, 255, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 1.35rem 1.5rem;
+      box-shadow: 0 24px 48px -28px rgba(56, 189, 248, 0.35);
+    }
+
+    .feature-chip::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(130deg, rgba(0, 200, 150, 0.08), rgba(236, 252, 255, 0));
+      z-index: -1;
+    }
+
+    blockquote {
+      border-left: 4px solid rgba(0, 200, 150, 0.45);
+      padding-left: 1.5rem;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: rgba(15, 23, 42, 0.78);
+    }
+
+    @media (max-width: 768px) {
+      body::after {
+        opacity: 0.18;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      [data-animate] {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      body::before {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900 antialiased">
+  <header class="sticky top-0 z-[60] border-b border-slate-200/70 bg-white/80 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <a href="{{ site.baseurl }}/" class="flex items-center gap-2 text-lg font-semibold tracking-tight text-slate-900">
+        <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+        Emmy.earth
+      </a>
+      <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-4 py-1 text-xs font-semibold uppercase tracking-[0.34em] text-slate-500">
+        Prototype Lab
+      </span>
+    </div>
+  </header>
+  <main class="relative z-10">
+    {{ content }}
+  </main>
+  <footer class="border-t border-slate-200 bg-white/85 py-12 backdrop-blur-md">
+    <div class="mx-auto flex max-w-6xl flex-col gap-6 px-6 text-sm text-slate-500 lg:flex-row lg:items-center lg:justify-between">
+      <p>&copy; {{ 'now' | date: '%Y' }} Emmy.earth. All rights reserved.</p>
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="mailto:info@emmy.earth" class="transition hover:text-slate-900">Contact</a>
+        <a href="https://www.linkedin.com/company/emmy-earth" class="transition hover:text-slate-900">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/simplelightbox@2/dist/simple-lightbox.min.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const root = document.documentElement;
+      const updatePointer = (event) => {
+        root.style.setProperty('--cursor-x', `${event.clientX}px`);
+        root.style.setProperty('--cursor-y', `${event.clientY}px`);
+      };
+
+      if (!window.matchMedia('(pointer: coarse)').matches) {
+        document.addEventListener('pointermove', updatePointer);
+        document.addEventListener('pointerleave', () => {
+          root.style.removeProperty('--cursor-x');
+          root.style.removeProperty('--cursor-y');
+        });
+      } else {
+        root.style.setProperty('--cursor-x', '50%');
+        root.style.setProperty('--cursor-y', '20%');
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -10% 0px'
+      });
+
+      document.querySelectorAll('[data-animate]').forEach((element, index) => {
+        const delay = element.dataset.delay || `${Math.min(index * 0.08, 0.48)}s`;
+        element.style.setProperty('--delay', delay);
+        observer.observe(element);
+      });
+
+      if (window.SimpleLightbox) {
+        new SimpleLightbox('.lightbox-trigger', {
+          captions: true,
+          captionsData: 'alt',
+          captionDelay: 150,
+          overlayOpacity: 0.95
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+
