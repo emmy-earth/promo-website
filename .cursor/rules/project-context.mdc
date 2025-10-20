@@ -9,8 +9,8 @@ Emmy.earth is a promotional website for an AI-powered carbon accounting platform
 
 ## Tech Stack
 - Static site generator: Jekyll
-- Frontend: HTML, CSS (Bootstrap 5), JavaScript (minimal)
-- Styling: Bootstrap 5, Custom CSS with CSS variables
+- Frontend: HTML, CSS, JavaScript (minimal)
+- Styling: Tailwind 4, Custom CSS with CSS variables
 - Components: SimpleLightbox for image galleries
 
 ## Structure

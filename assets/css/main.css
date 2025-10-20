@@ -81,3 +81,8 @@
 @source "../../_layouts/*.html";
 @source "../../_includes/*.html";
 @source "../../*.html";
+
+[data-nav3-link][data-active="true"] {
+  background-color: var(--color-emmy-orange);
+  color: var(--color-emmy-dark);
+}

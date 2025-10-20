@@ -12,30 +12,32 @@ description: "Get in touch with Emmy.earth for automated carbon accounting solut
         <h2 class="font-light text-4xl text-slate-900 sm:text-5xl">Contact us</h2>
         <p class="text-lg leading-relaxed text-slate-600">Ready to automate your carbon accounting? Let's talk, press the button below or send directly an email to: info@emmy.earth</p>
       </div>
-      <div class="mx-auto max-w-lg space-y-6">
-        <div class="relative" data-dropdown>
-          <button type="button" id="contactDropdownButton" class="inline-flex w-full items-center justify-between gap-3 rounded-full border border-emerald-200/70 bg-emerald-50 px-8 py-3 text-base font-semibold text-emerald-700 shadow-card transition hover:-translate-y-0.5 hover:border-emerald-300 hover:bg-emerald-100/80" data-dropdown-button aria-haspopup="true" aria-expanded="false" aria-controls="contactDropdownMenu">
+      <div class="mx-auto max-w-lg space-y-6" x-data="{ emailDropdownOpen: false }">
+        <div class="relative">
+          <button @click="emailDropdownOpen = !emailDropdownOpen" :aria-expanded="emailDropdownOpen" class="inline-flex w-full items-center justify-between gap-3 rounded-full border border-emerald-200/70 bg-emerald-50 px-8 py-3 text-base font-semibold text-emerald-700 shadow-card transition hover:-translate-y-0.5 hover:border-emerald-300 hover:bg-emerald-100/80">
             <span class="inline-flex items-center gap-3">
               <i class="bi bi-envelope-paper text-lg"></i>
               Send us an email
             </span>
-            <i class="bi bi-chevron-down text-base transition-transform duration-200" data-dropdown-icon></i>
+            <svg :class="{ 'rotate-180': emailDropdownOpen }" class="h-5 w-5 transition-transform duration-200" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 7.5L10 12.5L15 7.5" />
+            </svg>
           </button>
-          <ul id="contactDropdownMenu" class="invisible absolute left-0 right-0 z-20 mt-3 w-full translate-y-2 overflow-hidden rounded-4xl border border-slate-200 bg-white/95 p-2 text-left opacity-0 shadow-card backdrop-blur transition-all duration-150 ease-out" data-dropdown-menu aria-labelledby="contactDropdownButton" aria-hidden="true" role="menu">
+          <ul x-show="emailDropdownOpen" x-transition @click.away="emailDropdownOpen = false" x-cloak class="absolute left-0 right-0 z-20 mt-3 w-full rounded-4xl border border-slate-200 bg-white/95 p-2 text-left shadow-card backdrop-blur">
             <li>
-              <a class="group flex w-full items-center justify-between gap-3 rounded-3xl border border-transparent px-4 py-3 text-base text-slate-600 transition hover:border-emerald-200 hover:bg-emerald-50/80 hover:text-emerald-700" href="mailto:info@emmy.earth?subject=Demo%20request" role="menuitem">
+              <a class="group flex w-full items-center justify-between gap-3 rounded-3xl border border-transparent px-4 py-3 text-base text-slate-600 transition hover:border-emerald-200 hover:bg-emerald-50/80 hover:text-emerald-700" href="mailto:info@emmy.earth?subject=Demo%20request">
                 I want a demo
                 <i class="bi bi-arrow-up-right text-sm opacity-0 transition-opacity duration-150 group-hover:opacity-100"></i>
               </a>
             </li>
             <li>
-              <a class="group flex w-full items-center justify-between gap-3 rounded-3xl border border-transparent px-4 py-3 text-base text-slate-600 transition hover:border-emerald-200 hover:bg-emerald-50/80 hover:text-emerald-700" href="mailto:info@emmy.earth?subject=Quote%20request" role="menuitem">
+              <a class="group flex w-full items-center justify-between gap-3 rounded-3xl border border-transparent px-4 py-3 text-base text-slate-600 transition hover:border-emerald-200 hover:bg-emerald-50/80 hover:text-emerald-700" href="mailto:info@emmy.earth?subject=Quote%20request">
                 I want a quote
                 <i class="bi bi-arrow-up-right text-sm opacity-0 transition-opacity duration-150 group-hover:opacity-100"></i>
               </a>
             </li>
             <li>
-              <a class="group flex w-full items-center justify-between gap-3 rounded-3xl border border-transparent px-4 py-3 text-base text-slate-600 transition hover:border-emerald-200 hover:bg-emerald-50/80 hover:text-emerald-700" href="mailto:info@emmy.earth?subject=General%20enquiry" role="menuitem">
+              <a class="group flex w-full items-center justify-between gap-3 rounded-3xl border border-transparent px-4 py-3 text-base text-slate-600 transition hover:border-emerald-200 hover:bg-emerald-50/80 hover:text-emerald-700" href="mailto:info@emmy.earth?subject=General%20enquiry">
                 Other
                 <i class="bi bi-arrow-up-right text-sm opacity-0 transition-opacity duration-150 group-hover:opacity-100"></i>
               </a>
