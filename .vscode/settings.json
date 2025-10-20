@@ -1,7 +1,4 @@
 {
-  "files.exclude": {
-    "legacy/**": true
-  },
   "search.exclude": {
     "legacy/**": true
   }
