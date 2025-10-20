@@ -1,3 +1,83 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Manrope', system-ui, sans-serif;
+  --font-display: 'Inter', ui-serif, Georgia;
+  --color-emerald: #16f2b0;
+  --color-emerald-50: #f0fdf4;
+  --color-emerald-100: #dcfce7;
+  --color-emerald-200: #bbf7d0;
+  --color-emerald-300: #86efac;
+  --color-emerald-400: #4ade80;
+  --color-emerald-500: #22c55e;
+  --color-emerald-600: #16a34a;
+  --color-emerald-700: #15803d;
+  --color-emerald-800: #166534;
+  --color-emerald-900: #14532d;
+
+  --color-emmy: #16f2b0;
+  --color-emmy-glow: #5dfbd0;
+  --color-emmy-soft: #c6ffe6;
+  --color-emmy-midnight: #040712;
+  --color-emmy-aura: #38bdf8;
+
+  --color-emmy-green: #34D399;
+  --color-emmy-light-green: #A7F3D0;
+  --color-emmy-dark: #111827;
+  --color-emmy-light-gray: #F9FAFB;
+  --color-emmy-gray: #F3F4F6;
+  --color-emmy-text: #374151;
+  --color-emmy-text-light: #6B7280;
+  --color-emmy-orange: #F2CBAE;
+
+  --shadow-aurora: 0 32px 120px -45px rgba(22, 242, 176, 0.55);
+  --shadow-card: 0 32px 65px -48px rgba(5, 12, 32, 0.95);
+  --shadow-halo: 0 0 0 1px rgba(148, 163, 184, 0.08);
+
+  --backdrop-blur-18: blur(18px);
+  --backdrop-blur-24: blur(24px);
+
+  --radius-3xl: 1.75rem;
+  --radius-4xl: 2.5rem;
+  --radius-5xl: 3.5rem;
+
+  --background-image-orbit: radial-gradient(circle at top, rgba(22, 242, 176, 0.18) 0%, rgba(22, 242, 176, 0) 60%);
+  --background-image-beam: linear-gradient(135deg, rgba(16, 240, 176, 0.32), rgba(59, 130, 246, 0.25), rgba(14, 116, 144, 0.25));
+
+  --animate-floaty: floaty 18s ease-in-out infinite;
+  --animate-shimmer: shimmer 8s linear infinite;
+  --animate-pulseBorder: pulseBorder 6s ease-in-out infinite;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(0, -10px, 0) scale(1.01); }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulseBorder {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(22, 242, 176, 0.35); }
+  50% { box-shadow: 0 0 0 28px rgba(22, 242, 176, 0); }
+}
+
+/* Custom utilities */
+@utility rounded-5xl {
+  border-radius: var(--radius-5xl);
+}
+
+@utility rounded-4xl {
+  border-radius: var(--radius-4xl);
+}
+
+@utility rounded-3xl {
+  border-radius: var(--radius-3xl);
+}
+
+/* Source: scan all HTML files for Tailwind classes */
+@source "../../_layouts/*.html";
+@source "../../_includes/*.html";
+@source "../../*.html";

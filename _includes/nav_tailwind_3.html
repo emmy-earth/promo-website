@@ -1,0 +1,226 @@
+<!-- Tailwind Navigation (Clean Light Mode) -->
+{% assign is_home = page.url == '/' %}
+{% assign is_business_case = page.url == '/business-case/' %}
+{% assign is_mission = page.url == '/mission/' %}
+{% assign is_contact = page.url == '/contact/' %}
+{% capture nav_link_base -%}
+inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium text-slate-600 bg-transparent transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2CBAE]
+{%- endcapture %}
+{% capture dropdown_link_base -%}
+flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors duration-200 hover:bg-slate-100 hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2CBAE]
+{%- endcapture %}
+
+<header data-nav3-root class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+  <nav class="mx-auto flex max-w-6xl flex-col px-4 sm:px-6">
+    <div class="flex h-16 items-center justify-between">
+      <a href="{{ site.baseurl }}/" class="shrink-0">
+        <img src="{{ site.baseurl }}/assets/images/logo_rectangle.png" alt="Emmy.earth" class="h-9 w-auto" />
+      </a>
+
+      <div class="flex items-center gap-3 md:hidden">
+        <a href="{{ site.baseurl }}/contact/" class="inline-flex items-center justify-center rounded-full border border-emerald-400 bg-emerald-400 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-white transition hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400">
+          Demo
+        </a>
+        <button type="button" data-nav3-menu-toggle aria-expanded="false" aria-controls="nav3Menu" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-600 transition hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2CBAE]">
+          <span class="sr-only">Toggle navigation</span>
+          <svg data-nav3-icon="open" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="7" x2="20" y2="7" />
+            <line x1="4" y1="12" x2="20" y2="12" />
+            <line x1="4" y1="17" x2="20" y2="17" />
+          </svg>
+          <svg data-nav3-icon="close" class="hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="6" y1="6" x2="18" y2="18" />
+            <line x1="18" y1="6" x2="6" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="nav3Menu" data-nav3-menu class="hidden flex-col items-start gap-4 pb-6 md:flex md:flex-row md:items-center md:justify-between md:gap-6 md:pb-0">
+      <ul class="flex w-full flex-col gap-2 md:flex-row md:items-center md:gap-4">
+        <li>
+          <a data-nav3-link href="{{ site.baseurl }}/" data-active="{% if is_home %}true{% else %}false{% endif %}" class="{{ nav_link_base | strip }} {% unless is_home %}hover:bg-[#F2CBAE] hover:text-slate-900{% endunless %} {% if is_home %}bg-[#F2CBAE] text-slate-900 shadow-sm{% endif %}">
+            Home
+          </a>
+        </li>
+        <li class="relative" data-nav3-dropdown>
+          <button type="button" data-nav3-dropdown-toggle aria-expanded="false" class="{{ nav_link_base | strip }} hover:bg-[#F2CBAE] hover:text-slate-900 pr-9">
+            <span>Solutions</span>
+            <svg data-nav3-dropdown-icon class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 transition-transform duration-200" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 7.5L10 12.5L15 7.5" />
+            </svg>
+          </button>
+          <div data-nav3-dropdown-panel data-open="false" class="absolute left-0 right-auto z-40 mt-2 hidden min-w-[14rem] flex-col gap-1 rounded-xl border border-slate-200 bg-white p-3 shadow-lg md:left-1/2 md:-translate-x-1/2">
+            <a href="{{ site.baseurl }}/#scope1-2" class="{{ dropdown_link_base | strip }}">
+              <span>GHG scope 1&amp;2</span>
+              <svg class="h-4 w-4 text-slate-400" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 14L14 6" />
+                <path d="M9 6H14V11" />
+              </svg>
+            </a>
+            <a href="{{ site.baseurl }}/#scope3" class="{{ dropdown_link_base | strip }}">
+              <span>GHG scope 3</span>
+              <svg class="h-4 w-4 text-slate-400" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 14L14 6" />
+                <path d="M9 6H14V11" />
+              </svg>
+            </a>
+            <a href="{{ site.baseurl }}/#other-services" class="{{ dropdown_link_base | strip }}">
+              <span>Other services</span>
+              <svg class="h-4 w-4 text-slate-400" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 14L14 6" />
+                <path d="M9 6H14V11" />
+              </svg>
+            </a>
+          </div>
+        </li>
+        <li>
+          <a data-nav3-link href="{{ site.baseurl }}/business-case/" data-active="{% if is_business_case %}true{% else %}false{% endif %}" class="{{ nav_link_base | strip }} {% unless is_business_case %}hover:bg-[#F2CBAE] hover:text-slate-900{% endunless %} {% if is_business_case %}bg-[#F2CBAE] text-slate-900 shadow-sm{% endif %}">
+            Business case
+          </a>
+        </li>
+        <li>
+          <a data-nav3-link href="{{ site.baseurl }}/mission/" data-active="{% if is_mission %}true{% else %}false{% endif %}" class="{{ nav_link_base | strip }} {% unless is_mission %}hover:bg-[#F2CBAE] hover:text-slate-900{% endunless %} {% if is_mission %}bg-[#F2CBAE] text-slate-900 shadow-sm{% endif %}">
+            Our mission
+          </a>
+        </li>
+        <li>
+          <a data-nav3-link href="{{ site.baseurl }}/contact/" data-active="{% if is_contact %}true{% else %}false{% endif %}" class="{{ nav_link_base | strip }} {% unless is_contact %}hover:bg-[#F2CBAE] hover:text-slate-900{% endunless %} {% if is_contact %}bg-[#F2CBAE] text-slate-900 shadow-sm{% endif %}">
+            Contact
+          </a>
+        </li>
+      </ul>
+
+      <div class="flex w-full flex-col items-stretch gap-3 border-t border-slate-200 pt-4 md:w-auto md:flex-row md:items-center md:gap-4 md:border-t-0 md:pt-0">
+        <a href="mailto:info@emmy.earth" class="inline-flex items-center justify-center rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-600 transition hover:border-[#F2CBAE] hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2CBAE] md:hidden">
+          info@emmy.earth
+        </a>
+        <a href="{{ site.baseurl }}/contact/" class="inline-flex items-center justify-center rounded-full bg-emerald-400 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400">
+          Get a demo
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navRoot = document.querySelector('[data-nav3-root]');
+    if (!navRoot) return;
+
+    const menu = navRoot.querySelector('[data-nav3-menu]');
+    const toggle = navRoot.querySelector('[data-nav3-menu-toggle]');
+    const openIcon = navRoot.querySelector('[data-nav3-icon="open"]');
+    const closeIcon = navRoot.querySelector('[data-nav3-icon="close"]');
+    const dropdownToggle = navRoot.querySelector('[data-nav3-dropdown-toggle]');
+    const dropdownPanel = navRoot.querySelector('[data-nav3-dropdown-panel]');
+    const dropdownIcon = navRoot.querySelector('[data-nav3-dropdown-icon]');
+    const dropdownContainer = navRoot.querySelector('[data-nav3-dropdown]');
+    const mediaQuery = window.matchMedia('(min-width: 768px)');
+
+    const setMenuOpen = (open) => {
+      if (!menu) return;
+      menu.dataset.open = open ? 'true' : 'false';
+      if (open) {
+        menu.classList.remove('hidden');
+      } else if (!mediaQuery.matches) {
+        menu.classList.add('hidden');
+      }
+      if (toggle) {
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      if (openIcon && closeIcon) {
+        if (open) {
+          openIcon.classList.add('hidden');
+          closeIcon.classList.remove('hidden');
+        } else {
+          openIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        }
+      }
+      if (!open) {
+        setDropdownOpen(false);
+      }
+    };
+
+    const setDropdownOpen = (open) => {
+      if (!dropdownPanel || !dropdownToggle) return;
+      dropdownPanel.dataset.open = open ? 'true' : 'false';
+      dropdownToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      dropdownPanel.classList.toggle('hidden', !open);
+      if (dropdownIcon) {
+        dropdownIcon.classList.toggle('rotate-180', open);
+      }
+    };
+
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        const isOpen = menu.dataset.open === 'true';
+        setMenuOpen(!isOpen);
+      });
+    }
+
+    const syncMenu = (event) => {
+      if (event.matches) {
+        menu.classList.remove('hidden');
+        menu.dataset.open = 'true';
+        if (toggle) {
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+        if (openIcon && closeIcon) {
+          openIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        }
+      } else {
+        menu.classList.add('hidden');
+        menu.dataset.open = 'false';
+        if (toggle) {
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      }
+      setDropdownOpen(false);
+    };
+
+    syncMenu(mediaQuery);
+    mediaQuery.addEventListener('change', syncMenu);
+
+    if (dropdownToggle && dropdownPanel) {
+      dropdownToggle.addEventListener('click', (event) => {
+        event.preventDefault();
+        const isOpen = dropdownPanel.dataset.open === 'true';
+        setDropdownOpen(!isOpen);
+      });
+
+      dropdownToggle.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          const isOpen = dropdownPanel.dataset.open === 'true';
+          setDropdownOpen(!isOpen);
+        } else if (event.key === 'Escape') {
+          setDropdownOpen(false);
+          dropdownToggle.blur();
+        }
+      });
+    }
+
+    document.addEventListener('click', (event) => {
+      if (dropdownContainer && !dropdownContainer.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+      if (menu && toggle && !navRoot.contains(event.target) && !mediaQuery.matches) {
+        setMenuOpen(false);
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        setDropdownOpen(false);
+        if (!mediaQuery.matches) {
+          setMenuOpen(false);
+        }
+      }
+    });
+  });
+</script>
+
+
