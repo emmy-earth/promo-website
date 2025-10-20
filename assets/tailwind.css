@@ -508,6 +508,9 @@
   .animate-floaty {
     animation: var(--animate-floaty);
   }
+  .cursor-pointer {
+    cursor: pointer;
+  }
   .flex-col {
     flex-direction: column;
   }
