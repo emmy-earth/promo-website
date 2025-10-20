@@ -1,0 +1,40 @@
+<!-- Header -->
+<header class="sticky-top">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="{{ site.baseurl }}/">
+                <img src="{{ site.baseurl }}/assets/images/logo_rectangle.png" alt="Emmy.earth" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {% if page.url == '/' %}active{% endif %}" href="{{ site.baseurl }}/">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="solutionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Solutions
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="solutionsDropdown">
+                            <li><a class="dropdown-item" href="{{ site.baseurl }}/#scope1-2">GHG scope 1&2</a></li>
+                            <li><a class="dropdown-item" href="{{ site.baseurl }}/#scope3">GHG scope 3</a></li>
+                            <li><a class="dropdown-item" href="{{ site.baseurl }}/#other-services">Other services</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if page.url == '/business-case/' %}active{% endif %}" href="{{ site.baseurl }}/business-case/">Business case</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if page.url == '/mission/' %}active{% endif %}" href="{{ site.baseurl }}/mission/">Our mission</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if page.url == '/contact/' %}active{% endif %}" href="{{ site.baseurl }}/contact/">Contact</a>
+                    </li>
+                </ul>
+                <a href="{{ site.baseurl }}/contact/" class="btn btn-demo d-none d-lg-inline-block">Get a demo</a>
+            </div>
+        </div>
+    </nav>
+</header>

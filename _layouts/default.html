@@ -1,355 +1,188 @@
+---
+---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title | default: site.title }}</title>
-
-    <!-- Favicon and Web App Manifest -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/assets/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/assets/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/assets/images/favicon-16x16.png">
-    <link rel="manifest" href="{{ site.baseurl }}/site.webmanifest">
-    <link rel="shortcut icon" href="{{ site.baseurl }}/assets/images/favicon.ico">
-    <meta name="theme-color" content="#34D399">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-
-    <!-- SEO and Social Media Meta Tags -->
-    <meta name="description" content="{{ page.description | default: site.description }}">
-    <meta name="keywords" content="carbon accounting, automated, AI, sustainability, GHG scope 1, scope 2, scope 3, emission factors, audit reports">
-    <meta name="author" content="Emmy.earth by ProBackup B.V.">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-    <meta property="og:title" content="{{ page.title | default: site.title }}">
-    <meta property="og:description" content="{{ page.description | default: site.description }}">
-    <meta property="og:image" content="{{ site.url }}/assets/images/logo_rectangle.png">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="{{ site.url }}{{ page.url }}">
-    <meta property="twitter:title" content="{{ page.title | default: site.title }}">
-    <meta property="twitter:description" content="{{ page.description | default: site.description }}">
-    <meta property="twitter:image" content="{{ site.url }}/assets/images/logo_rectangle.png">
-
-    <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <!-- Bootstrap Icons CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <!-- SimpleLightbox CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplelightbox@2.14.2/dist/simple-lightbox.min.css" />
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --emmy-green: #34D399;
-            --emmy-light-green: #A7F3D0;
-            --emmy-dark: #111827;
-            --emmy-light-gray: #F9FAFB;
-            --emmy-gray: #F3F4F6;
-            --emmy-text: #374151;
-            --emmy-text-light: #6B7280;
-            --emmy-orange: #F2CBAE;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--emmy-light-gray);
-            color: var(--emmy-text);
-        }
-
-        /* --- Navigation --- */
-        .navbar {
-            background-color: #ffffff;
-            border-bottom: 1px solid #dee2e6;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-        }
-
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--emmy-dark);
-            display: flex;
-            align-items: center;
-        }
-        .navbar-brand img {
-            height: 40px;
-            width: auto;
-            max-width: 150px;
-        }
-        .navbar-brand .green-dot {
-            color: var(--emmy-green);
-        }
-
-        /* Mobile responsive logo sizing */
-        @media (max-width: 767.98px) {
-            .navbar-brand img {
-                height: 32px;
-                max-width: 120px;
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title }}</title>
+  {% if page.description or site.description %}
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  {% endif %}
+  <link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/images/android-chrome-192x192.png">
+  <link rel="apple-touch-icon" href="{{ site.baseurl }}/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="{{ site.baseurl }}/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplelightbox@2.14.2/dist/simple-lightbox.min.css">
+  <script>
+    window.tailwind = window.tailwind || {};
+    window.tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Manrope"', 'system-ui', 'sans-serif'],
+            display: ['"Inter"', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            emmy: {
+              DEFAULT: '#16f2b0',
+              glow: '#5dfbd0',
+              soft: '#c6ffe6',
+              midnight: '#040712',
+              aura: '#38bdf8'
             }
+          },
+          boxShadow: {
+            aurora: '0 32px 120px -45px rgba(22, 242, 176, 0.55)',
+            card: '0 32px 65px -48px rgba(5, 12, 32, 0.95)',
+            halo: '0 0 0 1px rgba(148, 163, 184, 0.08)'
+          },
+          borderRadius: {
+            '3xl': '1.75rem',
+            '4xl': '2.5rem',
+            '5xl': '3.5rem'
+          },
+          backdropBlur: {
+            18: '18px',
+            24: '24px'
+          },
+          backgroundImage: {
+            orbit: 'radial-gradient(circle at top, rgba(22, 242, 176, 0.18) 0%, rgba(22, 242, 176, 0) 60%)',
+            beam: 'linear-gradient(135deg, rgba(16, 240, 176, 0.32), rgba(59, 130, 246, 0.25), rgba(14, 116, 144, 0.25))'
+          },
+          keyframes: {
+            floaty: {
+              '0%, 100%': { transform: 'translate3d(0, 0, 0) scale(1)' },
+              '50%': { transform: 'translate3d(0, -10px, 0) scale(1.01)' }
+            },
+            shimmer: {
+              '0%': { backgroundPosition: '200% 50%' },
+              '100%': { backgroundPosition: '0% 50%' }
+            },
+            pulseBorder: {
+              '0%, 100%': { boxShadow: '0 0 0 0 rgba(22, 242, 176, 0.35)' },
+              '50%': { boxShadow: '0 0 0 28px rgba(22, 242, 176, 0)' }
+            }
+          },
+          animation: {
+            floaty: 'floaty 18s ease-in-out infinite',
+            shimmer: 'shimmer 8s linear infinite',
+            pulseBorder: 'pulseBorder 6s ease-in-out infinite'
+          }
         }
-
-        .nav-link {
-            color: var(--emmy-text);
-            font-weight: 500;
-        }
-        .nav-link:hover {
-            color: var(--emmy-dark);
-        }
-        .nav-link.active {
-            color: #FFFFFF;
-            background-color: var(--emmy-orange);
-        }
-
-        .dropdown-item:active {
-            background-color: var(--emmy-green);
-            color: white;
-        }
-
-        .btn-demo {
-            background-color: var(--emmy-green);
-            color: white;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            padding: 0.6rem 1.2rem;
-        }
-        .btn-demo:hover {
-            background-color: #2aa779;
-            color: white;
-        }
-
-        /* --- Page Sections --- */
-        main > section {
-            padding: 80px 0;
-        }
-
-        /* --- Hero Section --- */
-        #intro {
-            background-color: #1A355A;
-            color: #ffffff;
-            padding: 80px 0;
-        }
-        #intro h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            line-height: 1.2;
-        }
-        #intro .lead {
-            font-size: 1.5rem;
-            color: #e5e7eb;
-        }
-        .video-placeholder {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            background-color: #374151;
-            border-radius: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: #9ca3af;
-        }
-        #intro blockquote {
-            border-left: 4px solid var(--emmy-green);
-            padding-left: 1.5rem;
-            margin-top: 3rem;
-            font-style: italic;
-            color: #d1d5db;
-            position: relative;
-            font-size: 1.125rem;
-        }
-
-        /* --- General Section Styling --- */
-        h2 {
-            font-weight: 700;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--emmy-dark);
-        }
-        #scope1-2 h2, #scope3 h2, #other-services h2 {
-            font-size: 2.8rem;
-        }
-        .section-pitch {
-            font-size: 1.1rem;
-            color: var(--emmy-text-light);
-            line-height: 1.8;
-        }
-        .section-pitch ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        .section-pitch li {
-            position: relative;
-            padding-left: 1.5em; /* Adjust this value to move text right */
-        }
-        .section-pitch li:before {
-            content: '✓';
-            color: var(--emmy-green);
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            position: absolute;
-            left: 0; /* Align tick mark to the left */
-        }
-        .dash-list li:before {
-            content: none; /* Remove the checkmark for dash items */
-        }
-        .feature-box {
-            background-color: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.75rem;
-            padding: 2rem;
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .feature-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--emmy-green);
-            margin-bottom: 1rem;
-        }
-        .feature-box h4 {
-            font-weight: 600;
-            color: var(--emmy-dark);
-            font-size: 1.1rem;
-        }
-        .cta-section {
-            background-color: var(--emmy-gray);
-            border-radius: 1rem;
-            padding: 2rem;
-        }
-        .btn-outline-dark {
-            border-radius: 0.5rem;
-            font-weight: 500;
-            padding: 0.6rem 1.2rem;
-        }
-        .img-fluid {
-            border-radius: 1rem;
-        }
-        #contact blockquote img {
-            border-radius: 1rem;
-            max-width: 400px;
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-            cursor: default;
-        }
-
-        /* --- Business Case & Mission Pages --- */
-        #business-case h2, #mission h2, #contact h2 {
-            text-align: center;
-        }
-        .content-card {
-            background-color: white;
-            padding: 3rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        .content-card ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        .content-card li {
-            padding: 0.5rem 0;
-            font-size: 1.1rem;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        .content-card li:last-child {
-            border-bottom: none;
-        }
-        .content-card li:before {
-            content: '✓';
-            color: var(--emmy-green);
-            font-weight: bold;
-            margin-right: 1rem;
-        }
-
-        /* --- Contact Page --- */
-        #contact .lead {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 2rem auto;
-            color: var(--emmy-text-light);
-        }
-        #contact blockquote {
-            border: none;
-            background-color: var(--emmy-gray);
-            padding: 2rem;
-            border-radius: 1rem;
-            text-align: center;
-            font-size: 1.25rem;
-            font-style: italic;
-            font-weight: 500;
-            color: var(--emmy-dark);
-            margin-top: 3rem;
-        }
-
-        /* --- Footer --- */
-        footer {
-            background-color: var(--emmy-gray);
-            padding: 2rem 0;
-            font-size: 0.9rem;
-            color: var(--emmy-text-light);
-        }
-        footer a {
-            color: var(--emmy-text-light);
-            text-decoration: none;
-        }
-        footer a:hover {
-            color: var(--emmy-dark);
-            text-decoration: underline;
-        }
-
-        .lightbox-trigger img {
-            cursor: pointer;
-            transition: opacity 0.2s ease-in-out;
-        }
-    </style>
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/tailwind.css">
+  <script src="https://cdn.jsdelivr.net/npm/simplelightbox@2.14.2/dist/simple-lightbox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+    body {
+      font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(22, 242, 176, 0.16), transparent 58%),
+        radial-gradient(circle at 82% 8%, rgba(59, 130, 246, 0.26), transparent 52%),
+        radial-gradient(circle at 50% 110%, rgba(12, 20, 54, 0.9), rgba(4, 7, 18, 0.96));
+      min-height: 100dvh;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(500px circle at var(--pointer-x, 50%) var(--pointer-y, 50%), rgba(22, 242, 176, 0.24), transparent 70%);
+      opacity: 0.55;
+      mix-blend-mode: screen;
+      transition: opacity 0.6s ease;
+      z-index: -1;
+    }
+    .noise-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.28;
+      background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"%3E%3Cfilter id="n"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="2.6" numOctaves="4" stitchTiles="stitch"/%3E%3CfeColorMatrix type="saturate" values="0"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23n)" opacity="0.12"/%3E%3C/svg%3E');
+      mix-blend-mode: soft-light;
+    }
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(48px) scale(0.985);
+      transition: opacity 0.8s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+      transition-delay: var(--delay, 0s);
+    }
+    [data-animate].is-visible {
+      opacity: 1;
+      transform: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      [data-animate] {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      body::before {
+        display: none;
+      }
+    }
+  </style>
 </head>
-<body>
-    {% include nav.html %}
-
-    <main>
-        {{ content }}
-    </main>
-
-    {% include footer.html %}
-
-    <!-- Bootstrap JS Bundle CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-    <!-- SimpleLightbox JS -->
-    <script src="https://cdn.jsdelivr.net/npm/simplelightbox@2.14.2/dist/simple-lightbox.min.js"></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Contact form dropdown logic
-            document.querySelectorAll('#contactOptions .dropdown-item').forEach(item => {
-                item.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    const subject = this.innerText;
-                    const body = `Hi Emmy,\n\nI'm interested in the following:\n${subject}\n\nLooking forward to hearing from you.`;
-                    const mailtoLink = `mailto:info@emmy.earth?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                    window.location.href = mailtoLink;
-                });
-            });
-
-            // Initialize lightbox
-            new SimpleLightbox('.lightbox-trigger');
+<body class="bg-slate-950 text-slate-100 antialiased">
+  <div class="noise-overlay"></div>
+  {% include nav.html %}
+  <main class="relative">
+    {{ content }}
+  </main>
+  {% include footer.html %}
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.SimpleLightbox) {
+        const lightbox = new SimpleLightbox('.lightbox-trigger', {
+          close: true,
+          disableScroll: false
         });
-    </script>
+        if (lightbox) {
+          lightbox.refresh();
+        }
+      }
+      const root = document.documentElement;
+      const pointerMove = (event) => {
+        root.style.setProperty('--pointer-x', `${event.clientX}px`);
+        root.style.setProperty('--pointer-y', `${event.clientY}px`);
+      };
+      if (!window.matchMedia('(pointer: coarse)').matches) {
+        document.addEventListener('pointermove', pointerMove);
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -15% 0px'
+      });
+
+      document.querySelectorAll('[data-animate]').forEach((element, index) => {
+        if (element.dataset.delay) {
+          element.style.setProperty('--delay', element.dataset.delay);
+        } else {
+          const delay = (index % 7) * 0.08;
+          element.style.setProperty('--delay', `${delay}s`);
+        }
+        observer.observe(element);
+      });
+    });
+  </script>
 </body>
 </html>
+
