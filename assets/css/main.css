@@ -107,3 +107,19 @@
   background-color: var(--color-emmy-orange);
   color: var(--color-emmy-dark);
 }
+
+.cta-primary {
+  background-image: linear-gradient(130deg, var(--color-emmy) 0%, rgba(52, 211, 153, 0.96) 55%, rgba(56, 189, 248, 0.9) 100%);
+  color: white;
+  box-shadow: 0 20px 45px -24px rgba(56, 189, 248, 0.65);
+}
+
+.cta-primary:hover {
+  background-image: linear-gradient(130deg, var(--color-emmy) 0%, rgba(52, 211, 153, 1) 60%, rgba(56, 189, 248, 0.98) 100%);
+  box-shadow: 0 24px 52px -26px rgba(56, 189, 248, 0.75);
+}
+
+.cta-primary:focus-visible {
+  outline: 2px solid var(--color-emmy-glow);
+  outline-offset: 2px;
+}

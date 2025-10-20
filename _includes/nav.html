@@ -1,9 +1,10 @@
-<!-- Tailwind Navigation (Clean Light Mode) -->
+<!-- Navigation -->
 {% assign current_url = page.url %}
 {% assign is_home = false %}
 {% assign is_business_case = false %}
 {% assign is_mission = false %}
 {% assign is_contact = false %}
+
 {% if current_url == '/' %}
   {% assign is_home = true %}
 {% endif %}
@@ -16,9 +17,11 @@
 {% if current_url == '/contact/' %}
   {% assign is_contact = true %}
 {% endif %}
+
 {% capture nav_link_base -%}
 inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium text-slate-600 bg-transparent transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2CBAE]
 {%- endcapture %}
+
 {% capture dropdown_link_base -%}
 flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors duration-200 hover:bg-slate-100 hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2CBAE]
 {%- endcapture %}
@@ -108,7 +111,7 @@ flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-medium
         <a href="mailto:info@emmy.earth" class="inline-flex items-center justify-center rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-600 transition hover:border-[#F2CBAE] hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2CBAE] md:hidden">
           info@emmy.earth
         </a>
-        <a href="{{ site.baseurl }}/contact/" class="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-gradient-to-r from-emerald-400 via-emerald-300 to-emerald-500 px-6 py-2.5 text-sm font-semibold text-white shadow-lg transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300">
+        <a href="{{ site.baseurl }}/contact/" class="inline-flex items-center justify-center whitespace-nowrap rounded-full px-6 py-2.5 text-sm font-semibold text-white shadow-lg transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300 cta-primary">
           Get a demo
         </a>
       </div>
