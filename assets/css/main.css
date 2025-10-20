@@ -77,6 +77,27 @@
   border-radius: var(--radius-3xl);
 }
 
+@utility list-checkmarks {
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-emerald-600);
+    font-weight: bold;
+  }
+}
+
+@utility list-bullets {
+  li {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+  }
+}
+
 /* Source: scan all HTML files for Tailwind classes */
 @source "../../_layouts/*.html";
 @source "../../_includes/*.html";
