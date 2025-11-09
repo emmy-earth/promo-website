@@ -1,64 +1,65 @@
-<!-- Pop-up Modal -->
-<div x-data="{ open: false }" @keydown.escape.window="open = false" @open-start-free-modal.window="open = true" x-cloak>
-    <!-- Overlay -->
-    <div x-show="open" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-        <!-- Modal Content -->
-        <div @click.away="open = false" x-transition:enter="ease-out duration-300"
-             x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-             x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
-             x-transition:leave="ease-in duration-200"
-             x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
-             x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-             class="relative bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+---
+layout: default
+title: Start for Free
+---
 
-            <h3 class="text-lg font-medium text-slate-900 mb-4">Make an account and start with Emmy for free</h3>
+<div class="relative py-16 sm:py-24">
+    <div class="mx-auto max-w-xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div class="text-center">
+            <h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Make an account and start with Emmy for free</h1>
+            <p class="mt-4 text-lg leading-6 text-slate-600">Fill in your details below to get started with Emmy.earth's free tier.</p>
+        </div>
 
-            <form action="#" method="POST" class="space-y-4">
+        <div class="mt-12 mx-auto max-w-lg lg:max-w-xl">
+            <form action="#" method="POST" class="grid grid-cols-1 gap-y-6">
                 <div>
                     <label for="full-name" class="block text-sm font-medium text-slate-700">First and last name</label>
-                    <input type="text" name="full-name" id="full-name" autocomplete="name" required
-                           class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    <div class="mt-1">
+                        <input type="text" name="full-name" id="full-name" autocomplete="name" required
+                               class="block w-full rounded-md border-slate-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
                 </div>
                 <div>
                     <label for="company-name" class="block text-sm font-medium text-slate-700">Company name</label>
-                    <input type="text" name="company-name" id="company-name" autocomplete="organization" required
-                           class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    <div class="mt-1">
+                        <input type="text" name="company-name" id="company-name" autocomplete="organization" required
+                               class="block w-full rounded-md border-slate-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
                 </div>
                 <div>
                     <label for="company-size" class="block text-sm font-medium text-slate-700">Company size</label>
-                    <input type="text" name="company-size" id="company-size" required
-                           class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    <div class="mt-1">
+                        <input type="text" name="company-size" id="company-size" required
+                               class="block w-full rounded-md border-slate-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
                 </div>
                 <div>
                     <label for="email" class="block text-sm font-medium text-slate-700">Email</label>
-                    <input type="email" name="email" id="email" autocomplete="email" required
-                           class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    <div class="mt-1">
+                        <input type="email" name="email" id="email" autocomplete="email" required
+                               class="block w-full rounded-md border-slate-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
                 </div>
                 <div>
                     <label for="phone-number" class="block text-sm font-medium text-slate-700">Phone number</label>
-                    <input type="tel" name="phone-number" id="phone-number" autocomplete="tel"
-                           class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    <div class="mt-1">
+                        <input type="tel" name="phone-number" id="phone-number" autocomplete="tel"
+                               class="block w-full rounded-md border-slate-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
                 </div>
 
-                <div class="text-xs text-slate-500 mt-4">
-                    By clicking on Start Now, you accept our <a href="{{ site.baseurl }}/privacy-policy/" class="text-emerald-600 hover:underline">Privacy Policy</a>
+                <div class="text-center mt-6">
+                    <p class="text-xs text-slate-500">
+                        By clicking on Start Now, you accept our <a href="{{ site.baseurl }}/privacy-policy/" class="text-emerald-600 hover:underline">Privacy Policy</a>
+                    </p>
                 </div>
 
-                <div class="flex justify-end mt-6">
-                    <button type="submit" class="inline-flex items-center justify-center whitespace-nowrap rounded-full px-6 py-2.5 text-sm font-semibold text-white shadow-lg transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300 cta-primary">
+                <div class="mt-6 flex justify-center">
+                    <button type="submit" class="inline-flex items-center justify-center whitespace-nowrap rounded-full px-8 py-3 text-base font-semibold text-white shadow-lg transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300 cta-primary">
                         Start now
                     </button>
                 </div>
             </form>
-
-            <!-- Close button -->
-            <button @click="open = false" class="absolute top-3 right-3 text-slate-400 hover:text-slate-600">
-                <span class="sr-only">Close modal</span>
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
         </div>
     </div>
 </div>
-<!-- End Pop-up Modal -->
