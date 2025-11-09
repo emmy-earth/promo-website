@@ -1,1 +1,14 @@
+---
+layout: default
+title: "Confirmation - Emmy.earth"
+---
 
+<section class="relative overflow-hidden bg-white py-24 text-slate-900">
+  <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(22,242,176,0.18),rgba(59,130,246,0)_65%)] opacity-90"></div>
+  <div class="relative mx-auto max-w-4xl px-6 text-center">
+    <h1 class="text-center font-light text-4xl text-slate-900 sm:text-5xl">Thank You!</h1>
+    <p class="mt-4 text-lg leading-relaxed text-slate-600">Your application to start with Emmy for free has been received.</p>
+    <p class="mt-2 text-lg leading-relaxed text-slate-600">We will review your submission and get back to you shortly.</p>
+    <a href="{{ site.baseurl }}/" class="mt-8 inline-flex items-center justify-center rounded-full border border-emerald-200 bg-emerald-100 px-8 py-3 text-base font-semibold text-emerald-700 transition hover:-translate-y-0.5 hover:border-emerald-300 hover:bg-emerald-200">Go to Homepage</a>
+  </div>
+</section>
