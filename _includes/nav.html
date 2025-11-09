@@ -54,11 +54,7 @@ flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-medium
 
     <div id="nav3Menu" x-show="menuOpen" x-transition class="w-full flex-col items-start gap-4 pb-6 md:flex md:flex-1 md:flex-row md:items-center md:justify-between md:gap-6 md:pb-0">
       <ul class="flex w-full flex-col gap-2 md:flex-row md:items-center md:gap-4">
-        <li>
-          <a data-nav3-link href="{{ site.baseurl }}/" data-active="{% if is_home %}true{% else %}false{% endif %}" class="{{ nav_link_base | strip }} {% unless is_home %}hover:bg-[#F2CBAE] hover:text-slate-900{% endunless %} {% if is_home %}bg-[#F2CBAE] text-slate-900 shadow-sm{% endif %}">
-            Home
-          </a>
-        </li>
+
         <li class="relative" x-data="{ dropdownOpen: false }">
           <button @click="dropdownOpen = !dropdownOpen" :aria-expanded="dropdownOpen" class="{{ nav_link_base | strip }} cursor-pointer hover:bg-[#F2CBAE] hover:text-slate-900 pr-9">
             <span>Solutions</span>
