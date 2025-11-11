@@ -1,1 +1,26 @@
-
+<section id="five-step-process" class="relative overflow-hidden border-t border-slate-200 bg-white py-24 text-slate-900">
+  <div class="pointer-events-none absolute inset-0 bg-[conic-gradient(from_120deg_at_10%_20%,rgba(16,240,176,0.22),rgba(16,240,176,0)_55%)]"></div>
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="grid gap-16">
+      <div class="space-y-8 text-center" data-animate>
+        <h2 class="font-light text-3xl text-slate-900 sm:text-4xl max-w-4xl mx-auto">
+          Unlike many other carbon accounting software, Emmy covers the full 5-step process: from messy data to final reporting.
+        </h2>
+        <div class="space-y-4 text-lg leading-relaxed text-slate-600 max-w-4xl mx-auto">
+          <p>
+            Most carbon accounting software only helps you with the easy part—steps 3 to 5 (calculations and reporting)—which is <strong>only 20% of the work</strong>. That leaves your team spending <strong>80% of their time</strong> struggling with manual data collection, cleaning, and entry.
+          </p>
+          <p>
+            Thanks to the latest generative AI technology, Emmy covers the <strong>entire 5-step process</strong>. We eliminate the pain points of data collection and cleaning (<strong>steps 1 and 2</strong>), allowing you to <strong>automate 80% of the manual effort</strong> and get to accurate reporting faster than ever before.
+          </p>
+        </div>
+      </div>
+      <div class="relative" data-animate data-delay="0.18s">
+        <div class="absolute -inset-6 rounded-xl bg-emerald-400/10 blur-3xl"></div>
+        <div class="relative block overflow-hidden rounded-xl border border-slate-200 bg-white shadow-aurora">
+          <img src="{{ site.baseurl }}/assets/images/5-step-process.png" alt="Emmy's automated 5-step carbon accounting process" class="w-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
