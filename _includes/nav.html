@@ -2,7 +2,7 @@
 {% assign current_url = page.url %}
 {% assign is_home = false %}
 {% assign is_business_case = false %}
-{% assign is_mission = false %}
+{% assign is_pricing = false %}
 {% assign is_contact = false %}
 
 {% if current_url == '/' %}
@@ -11,8 +11,8 @@
 {% if current_url == '/business-case/' %}
   {% assign is_business_case = true %}
 {% endif %}
-{% if current_url == '/mission/' %}
-  {% assign is_mission = true %}
+{% if current_url == '/pricing/' %}
+  {% assign is_pricing = true %}
 {% endif %}
 {% if current_url == '/contact/' %}
   {% assign is_contact = true %}
@@ -92,7 +92,7 @@ flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-medium
           </a>
         </li>
         <li>
-          <a data-nav3-link href="{{ site.baseurl }}/mission/" data-active="{% if is_mission %}true{% else %}false{% endif %}" class="{{ nav_link_base | strip }} {% unless is_mission %}hover:bg-[#F2CBAE] hover:text-slate-900{% endunless %} {% if is_mission %}bg-[#F2CBAE] text-slate-900 shadow-sm{% endif %}">
+          <a data-nav3-link href="{{ site.baseurl }}/pricing/" data-active="{% if is_pricing %}true{% else %}false{% endif %}" class="{{ nav_link_base | strip }} {% unless is_pricing %}hover:bg-[#F2CBAE] hover:text-slate-900{% endunless %} {% if is_pricing %}bg-[#F2CBAE] text-slate-900 shadow-sm{% endif %}">
             Pricing
           </a>
         </li>
