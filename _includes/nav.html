@@ -23,11 +23,11 @@
 {% endif %}
 
 {% capture nav_link_base -%}
-inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium text-slate-600 bg-transparent transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2CBAE]
+inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium text-slate-600 bg-transparent transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A7F3D0]
 {%- endcapture %}
 
 {% capture dropdown_link_base -%}
-flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors duration-200 hover:bg-slate-100 hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2CBAE]
+flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors duration-200 hover:bg-slate-100 hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A7F3D0]
 {%- endcapture %}
 
 <header x-data="navData()" class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
@@ -41,7 +41,7 @@ flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-medium
         <a href="{{ site.baseurl }}/start-for-free/" class="inline-flex items-center justify-center rounded-full border border-emerald-400 bg-emerald-400 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-white transition hover:bg-emerald-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400">
           Start for free
         </a>
-        <button @click="menuOpen = !menuOpen" :aria-expanded="menuOpen" aria-controls="nav3Menu" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-600 transition hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2CBAE]">
+        <button @click="menuOpen = !menuOpen" :aria-expanded="menuOpen" aria-controls="nav3Menu" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-600 transition hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A7F3D0]">
           <span class="sr-only">Toggle navigation</span>
           <svg x-show="!menuOpen" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <line x1="4" y1="7" x2="20" y2="7" />
@@ -60,7 +60,7 @@ flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-medium
       <ul class="flex w-full flex-col gap-2 md:flex-row md:items-center md:gap-4">
 
         <li class="relative" x-data="{ dropdownOpen: false }">
-          <button @click="dropdownOpen = !dropdownOpen" :aria-expanded="dropdownOpen" class="{{ nav_link_base | strip }} cursor-pointer hover:bg-[#F2CBAE] hover:text-slate-900 pr-9">
+          <button @click="dropdownOpen = !dropdownOpen" :aria-expanded="dropdownOpen" class="{{ nav_link_base | strip }} cursor-pointer hover:bg-[#A7F3D0] hover:text-slate-900 pr-9">
             <span>Solutions</span>
             <svg :class="{ 'rotate-180': dropdownOpen }" class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 transition-transform duration-200" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 7.5L10 12.5L15 7.5" />
@@ -91,22 +91,22 @@ flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-medium
           </div>
         </li>
         <li>
-          <a data-nav3-link href="{{ site.baseurl }}/business-case/" data-active="{% if is_business_case %}true{% else %}false{% endif %}" class="{{ nav_link_base | strip }} {% unless is_business_case %}hover:bg-[#F2CBAE] hover:text-slate-900{% endunless %} {% if is_business_case %}bg-[#F2CBAE] text-slate-900 shadow-sm{% endif %}">
+          <a data-nav3-link href="{{ site.baseurl }}/business-case/" data-active="{% if is_business_case %}true{% else %}false{% endif %}" class="{{ nav_link_base | strip }} {% unless is_business_case %}hover:bg-[#A7F3D0] hover:text-slate-900{% endunless %} {% if is_business_case %}bg-[#A7F3D0] text-slate-900 shadow-sm{% endif %}">
             Business case
           </a>
         </li>
         <li>
-          <a data-nav3-link href="{{ site.baseurl }}/pricing/" data-active="{% if is_pricing %}true{% else %}false{% endif %}" class="{{ nav_link_base | strip }} {% unless is_pricing %}hover:bg-[#F2CBAE] hover:text-slate-900{% endunless %} {% if is_pricing %}bg-[#F2CBAE] text-slate-900 shadow-sm{% endif %}">
+          <a data-nav3-link href="{{ site.baseurl }}/pricing/" data-active="{% if is_pricing %}true{% else %}false{% endif %}" class="{{ nav_link_base | strip }} {% unless is_pricing %}hover:bg-[#A7F3D0] hover:text-slate-900{% endunless %} {% if is_pricing %}bg-[#A7F3D0] text-slate-900 shadow-sm{% endif %}">
             Pricing
           </a>
         </li>
         <li>
-          <a data-nav3-link href="{{ site.baseurl }}/what-makes-us-unique/" data-active="{% if is_what_makes_us_unique %}true{% else %}false{% endif %}" class="{{ nav_link_base | strip }} {% unless is_what_makes_us_unique %}hover:bg-[#F2CBAE] hover:text-slate-900{% endunless %} {% if is_what_makes_us_unique %}bg-[#F2CBAE] text-slate-900 shadow-sm{% endif %}">
+          <a data-nav3-link href="{{ site.baseurl }}/what-makes-us-unique/" data-active="{% if is_what_makes_us_unique %}true{% else %}false{% endif %}" class="{{ nav_link_base | strip }} {% unless is_what_makes_us_unique %}hover:bg-[#A7F3D0] hover:text-slate-900{% endunless %} {% if is_what_makes_us_unique %}bg-[#A7F3D0] text-slate-900 shadow-sm{% endif %}">
             What makes us unique
           </a>
         </li>
         <li>
-          <a data-nav3-link href="{{ site.baseurl }}/contact/" data-active="{% if is_contact %}true{% else %}false{% endif %}" class="{{ nav_link_base | strip }} {% unless is_contact %}hover:bg-[#F2CBAE] hover:text-slate-900{% endunless %} {% if is_contact %}bg-[#F2CBAE] text-slate-900 shadow-sm{% endif %}">
+          <a data-nav3-link href="{{ site.baseurl }}/contact/" data-active="{% if is_contact %}true{% else %}false{% endif %}" class="{{ nav_link_base | strip }} {% unless is_contact %}hover:bg-[#A7F3D0] hover:text-slate-900{% endunless %} {% if is_contact %}bg-[#A7F3D0] text-slate-900 shadow-sm{% endif %}">
             Contact
           </a>
         </li>
