@@ -37,10 +37,7 @@ flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-medium
         <img src="{{ site.baseurl }}/assets/images/PPT_Rectangle logo_10.11.2025.png" alt="Emmy.earth" class="h-11 w-auto" />
       </a>
 
-      <div class="flex items-center gap-3 md:hidden">
-        <a href="{{ site.baseurl }}/start-for-free/" class="inline-flex items-center justify-center rounded-full border border-emerald-400 bg-emerald-400 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-white transition hover:bg-emerald-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400">
-          Start for free
-        </a>
+      <div class="flex items-center gap-3 md:hidden">        
         <button @click="menuOpen = !menuOpen" :aria-expanded="menuOpen" aria-controls="nav3Menu" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-600 transition hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2CBAE]">
           <span class="sr-only">Toggle navigation</span>
           <svg x-show="!menuOpen" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
