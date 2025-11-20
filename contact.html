@@ -25,19 +25,25 @@ description: "Get in touch with Emmy.earth for automated carbon accounting solut
           </button>
           <ul x-show="emailDropdownOpen" x-transition @click.away="emailDropdownOpen = false" x-cloak class="absolute left-0 right-0 z-20 mt-3 w-full rounded-4xl border border-slate-200 bg-white/95 p-2 text-left shadow-card backdrop-blur">
             <li>
-              <a class="group flex w-full items-center justify-between gap-3 rounded-3xl border border-transparent px-4 py-3 text-base text-slate-600 transition hover:border-emerald-200 hover:bg-emerald-50/80 hover:text-emerald-700" href="mailto:info@emmy.earth?subject=Demo%20request">
+              <!-- UPDATED: Added body text for Demo -->
+              <a class="group flex w-full items-center justify-between gap-3 rounded-3xl border border-transparent px-4 py-3 text-base text-slate-600 transition hover:border-emerald-200 hover:bg-emerald-50/80 hover:text-emerald-700" 
+                 href="mailto:info@emmy.earth?subject=Demo%20request&body=Dear%20Emmy,%20I%20would%20like%20to%20schedule%20a%20DEMO.">
                 I want a demo
                 <i class="bi bi-arrow-up-right text-sm opacity-0 transition-opacity duration-150 group-hover:opacity-100"></i>
               </a>
             </li>
             <li>
-              <a class="group flex w-full items-center justify-between gap-3 rounded-3xl border border-transparent px-4 py-3 text-base text-slate-600 transition hover:border-emerald-200 hover:bg-emerald-50/80 hover:text-emerald-700" href="mailto:info@emmy.earth?subject=Quote%20request">
+              <!-- UPDATED: Added body text for Quote -->
+              <a class="group flex w-full items-center justify-between gap-3 rounded-3xl border border-transparent px-4 py-3 text-base text-slate-600 transition hover:border-emerald-200 hover:bg-emerald-50/80 hover:text-emerald-700" 
+                 href="mailto:info@emmy.earth?subject=Quote%20request&body=Dear%20Emmy,%20I%20would%20like%20to%20request%20a%20QUOTE.">
                 I want a quote
                 <i class="bi bi-arrow-up-right text-sm opacity-0 transition-opacity duration-150 group-hover:opacity-100"></i>
               </a>
             </li>
             <li>
-              <a class="group flex w-full items-center justify-between gap-3 rounded-3xl border border-transparent px-4 py-3 text-base text-slate-600 transition hover:border-emerald-200 hover:bg-emerald-50/80 hover:text-emerald-700" href="mailto:info@emmy.earth?subject=General%20enquiry">
+              <!-- UPDATED: Added body text for General enquiry -->
+              <a class="group flex w-full items-center justify-between gap-3 rounded-3xl border border-transparent px-4 py-3 text-base text-slate-600 transition hover:border-emerald-200 hover:bg-emerald-50/80 hover:text-emerald-700" 
+                 href="mailto:info@emmy.earth?subject=General%20enquiry&body=Dear%20Emmy,%20I%20have%20a%20question%20about...">
                 Other
                 <i class="bi bi-arrow-up-right text-sm opacity-0 transition-opacity duration-150 group-hover:opacity-100"></i>
               </a>
@@ -53,4 +59,3 @@ description: "Get in touch with Emmy.earth for automated carbon accounting solut
     </div>
   </div>
 </section>
-
