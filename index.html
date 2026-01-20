@@ -24,10 +24,10 @@ description: "Automated carbon accounting platform with AI-powered carbon analys
       
       <!-- NEW BUTTONS ADDED HERE -->
       <div class="flex justify-center items-center gap-4 pt-6">
-        <a href="{{ site.baseurl }}/start-for-free/" class="inline-flex items-center justify-center whitespace-nowrap rounded-full px-6 py-3 text-base font-semibold text-emerald-600 border border-emerald-600 bg-white shadow-lg transition hover:bg-emerald-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300 hover:-translate-y-0.5">
+        <a href="{{ site.baseurl }}/start-for-free/" class="inline-flex items-center justify-center whitespace-nowrap rounded-full px-6 py-3 text-base font-semibold text-emerald-600 border border-emerald-600 hover:bg-emerald-600 hover:text-white transition">
           Start for free
         </a>
-        <a href="{{ site.baseurl }}/contact/" class="cta-primary cursor-pointer inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-semibold text-white shadow-lg transition hover:-translate-y-0.5">
+        <a href="{{ site.baseurl }}/contact/" class="cta-primary cursor-pointer inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-semibold text-white shadow-lg transition hover:bg-emerald-600 hover:text-white">
           Demo or Quote
         </a>
       </div>
@@ -37,19 +37,19 @@ description: "Automated carbon accounting platform with AI-powered carbon analys
     <div class="relative overflow-hidden rounded-xl border border-white/15 bg-slate-950/70 shadow-aurora backdrop-blur-24" data-animate data-delay="0.12s">
       <div class="relative">
         <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/45"></div>
-        <iframe
-          src="https://www.youtube.com/embed/fIXlh6X1uv0"
-          title="Emmy.earth Demo Video"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-          class="aspect-video w-full"></iframe>
+
+        <!-- REPLACED YOUTUBE IFRAME WITH 'WAIVING EMMY' IMAGE -->
+        <a href="{{ site.baseurl }}/assets/images/emmy_waiving.jpg" class="relative block overflow-hidden rounded-xl lightbox-trigger">
+          <img src="{{ site.baseurl }}/assets/images/emmy_waiving.jpg" alt="emmy_waiving" class="aspect-video w-full object-cover" />
+        </a>
+        <!-- END REPLACEMENT -->
+
       </div>
     </div>
 
     <!-- UPDATED QUOTE SECTION -->
     <div class="mx-auto max-w-3xl text-center" data-animate data-delay="0.2s">
-      <h3 class="text-xl sm:text-2xl"> <span class="text-emerald-200 font-semibold text-xl sm:text-2xl">Our Mission:</span> We want to empower businesses with <span class="text-emerald-200 font-semibold text-xl sm:text-2xl">truly effortless carbon data management</span>, at an <span class="text-emerald-200 font-semibold text-xl sm:text-2xl">affordable and reasonable cost</span>.</h3>
+      <h3 class="text-xl sm:text-2xl"> <span class="text-emerald-200 font-semibold text-xl sm:text-2xl">Our Mission:</span> We want to empower businesses with <span class="text-emerald-200 font-semibo[...]
     </div>
     <!-- END OF UPDATED QUOTE SECTION -->
 
@@ -170,7 +170,7 @@ description: "Automated carbon accounting platform with AI-powered carbon analys
             </div>
             <h4 class="mt-4 text-base font-semibold text-slate-900">Automated data quality and completeness review</h4>
           </div>
-          <div class="group rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-card transition hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-aurora sm:col-span-2 lg:col-span-1">
+          <div class="group rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-card transition hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-aurora sm:col-span-2 lg:col-span-1"[...]
             <div class="text-2xl text-emerald-500">
               <i class="bi bi-lightbulb"></i>
             </div>
@@ -302,12 +302,12 @@ description: "Automated carbon accounting platform with AI-powered carbon analys
     <div class="grid gap-10 md:grid-cols-[1fr_auto_1fr] md:items-center">
       <div class="space-y-3 text-center md:text-left">
         <p class="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-200">Curious for the business case?</p>
-        <a href="{{ site.baseurl }}/business-case/" class="inline-flex items-center justify-center rounded-full border border-emerald-300/50 bg-emerald-300/10 px-7 py-3 text-sm font-semibold text-emerald-100 transition hover:bg-emerald-300/20">View Business Case</a>
+        <a href="{{ site.baseurl }}/business-case/" class="inline-flex items-center justify-center rounded-full border border-emerald-300/50 bg-emerald-300/10 px-7 py-3 text-sm font-semibold text-emer[...]
       </div>
       <div class="hidden h-16 w-px bg-white/20 md:block"></div>
       <div class="space-y-3 text-center md:text-right">
         <p class="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-200">Want a quote or demo?</p>
-        <a href="{{ site.baseurl }}/contact/" class="inline-flex items-center justify-center rounded-full border border-emerald-300/50 bg-emerald-300/10 px-7 py-3 text-sm font-semibold text-emerald-100 transition hover:bg-emerald-300/20">Get in contact</a>
+        <a href="{{ site.baseurl }}/contact/" class="inline-flex items-center justify-center rounded-full border border-emerald-300/50 bg-emerald-300/10 px-7 py-3 text-sm font-semibold text-emerald-10[...]
       </div>
     </div>
   </div>
