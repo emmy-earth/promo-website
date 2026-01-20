@@ -1,18 +1,14 @@
 <!-- Navigation -->
 {% assign current_url = page.url %}
 {% assign is_home = false %}
-{% assign is_business_case = false %}
-{% assign is_what_makes_us_unique = false %}
+{% assign is_who_we_are = false %}
 {% assign is_contact = false %}
 
 {% if current_url == '/' %}
   {% assign is_home = true %}
 {% endif %}
-{% if current_url == '/business-case/' %}
-  {% assign is_business_case = true %}
-{% endif %}
-{% if current_url == '/what-makes-us-unique/' %}
-  {% assign is_what_makes_us_unique = true %}
+{% if current_url == '/who_we_are/' %}
+  {% assign is_who_we_are = true %}
 {% endif %}
 {% if current_url == '/contact/' %}
   {% assign is_contact = true %}
@@ -84,13 +80,8 @@ flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-medium
           </div>
         </li>
         <li>
-          <a data-nav3-link href="{{ site.baseurl }}/business-case/" data-active="{% if is_business_case %}true{% else %}false{% endif %}" class="{{ nav_link_base | strip }} {% unless is_business_case %}hover:bg-[#F2CBAE] hover:text-slate-900{% endunless %} {% if is_business_case %}bg-[#F2CBAE] text-slate-900 shadow-sm{% endif %}">
-            Business case
-          </a>
-        </li>
-        <li>
-          <a data-nav3-link href="{{ site.baseurl }}/what-makes-us-unique/" data-active="{% if is_what_makes_us_unique %}true{% else %}false{% endif %}" class="{{ nav_link_base | strip }} {% unless is_what_makes_us_unique %}hover:bg-[#F2CBAE] hover:text-slate-900{% endunless %} {% if is_what_makes_us_unique %}bg-[#F2CBAE] text-slate-900 shadow-sm{% endif %}">
-            What makes us unique
+          <a data-nav3-link href="{{ site.baseurl }}/Who-we-are/" data-active="{% if is_who_we_are %}true{% else %}false{% endif %}" class="{{ nav_link_base | strip }} {% unless is_who_we_are %}hover:bg-[#F2CBAE] hover:text-slate-900{% endunless %} {% if is_who_we_are %}bg-[#F2CBAE] text-slate-900 shadow-sm{% endif %}">
+            Who we are
           </a>
         </li>
         <li>
