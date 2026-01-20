@@ -2,7 +2,6 @@
 {% assign current_url = page.url %}
 {% assign is_home = false %}
 {% assign is_business_case = false %}
-{% assign is_pricing = false %}
 {% assign is_what_makes_us_unique = false %}
 {% assign is_contact = false %}
 
@@ -11,9 +10,6 @@
 {% endif %}
 {% if current_url == '/business-case/' %}
   {% assign is_business_case = true %}
-{% endif %}
-{% if current_url == '/pricing/' %}
-  {% assign is_pricing = true %}
 {% endif %}
 {% if current_url == '/what-makes-us-unique/' %}
   {% assign is_what_makes_us_unique = true %}
@@ -90,11 +86,6 @@ flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-medium
         <li>
           <a data-nav3-link href="{{ site.baseurl }}/business-case/" data-active="{% if is_business_case %}true{% else %}false{% endif %}" class="{{ nav_link_base | strip }} {% unless is_business_case %}hover:bg-[#F2CBAE] hover:text-slate-900{% endunless %} {% if is_business_case %}bg-[#F2CBAE] text-slate-900 shadow-sm{% endif %}">
             Business case
-          </a>
-        </li>
-        <li>
-          <a data-nav3-link href="{{ site.baseurl }}/pricing/" data-active="{% if is_pricing %}true{% else %}false{% endif %}" class="{{ nav_link_base | strip }} {% unless is_pricing %}hover:bg-[#F2CBAE] hover:text-slate-900{% endunless %} {% if is_pricing %}bg-[#F2CBAE] text-slate-900 shadow-sm{% endif %}">
-            Pricing
           </a>
         </li>
         <li>
