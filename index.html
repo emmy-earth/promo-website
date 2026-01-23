@@ -1,59 +1,98 @@
----
-layout: default
-title: "Emmy.earth - Automated Carbon Accounting"
-description: "Automated carbon accounting platform with AI-powered carbon analyst Emmy. Stop collecting invoices manually - get 100% automated CO2 data collection & calculation."
----
-
-<section class="relative overflow-hidden py-20">
-  <div class="pointer-events-none absolute inset-0 -z-10">
-    <div class="animate-floaty absolute -top-32 left-24 h-72 w-72 rounded-full bg-emerald-400/25 blur-3xl"></div>
-    <div class="animate-floaty absolute -bottom-32 right-12 h-96 w-96 rounded-full bg-sky-500/20 blur-3xl" style="animation-delay: 4s"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(22,242,176,0.12),rgba(22,242,176,0)_60%)] opacity-70"></div>
-  </div>
-
-  <div class="mx-auto max-w-4xl px-6 text-center space-y-10" data-animate>
-
-    <div class="space-y-6">
-      <h1 class="font-light text-4xl text-white sm:text-5xl md:text-5xl leading-tight">
-        Automated carbon accounting? Done.</span>
-      </h1>
-      <div class="space-y-3 text-lg text-slate-200">
-        <h2 class="text-emerald-200 font-semibold text-xl sm:text-2xl">Stop collecting invoices manually.</h2>
-        <h2 class="text-xl sm:text-2xl"> Meet <span class="text-emerald-200 font-semibold text-xl sm:text-2xl">Emmy</span> – your AI-powered carbon analyst</h2>
+    ---
+    layout: default
+    title: "Emmy.earth - Automated Carbon Accounting"
+    description: "Automated carbon accounting platform with AI-powered carbon analyst Emmy. Stop collecting invoices manually - get 100% automated CO2 data collection & calculation."
+    ---
+    
+    <section class="relative overflow-hidden">
+      <div class="pointer-events-none absolute inset-0 -z-10">
+        <div class="animate-floaty absolute -top-32 left-24 h-72 w-72 rounded-full bg-emerald-400/25 blur-3xl"></div>
+        <div class="animate-floaty absolute -bottom-32 right-12 h-96 w-96 rounded-full bg-sky-500/20 blur-3xl" style="animation-delay: 4s"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(22,242,176,0.12),rgba(22,242,176,0)_60%)] opacity-70"></div>
       </div>
-      
-      <!-- NEW BUTTONS ADDED HERE -->
-      <div class="flex justify-center items-center gap-4 pt-6">
-        <a href="{{ site.baseurl }}/start-for-free/" class="inline-flex items-center justify-center whitespace-nowrap rounded-full px-6 py-3 text-base font-semibold text-emerald-600 border border-emerald-600 bg-white shadow-lg transition hover:bg-emerald-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300 hover:-translate-y-0.5">
-          Start for free
-        </a>
-        <a href="{{ site.baseurl }}/contact/" class="cta-primary cursor-pointer inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-semibold text-white shadow-lg transition hover:-translate-y-0.5">
-          Demo or Quote
-        </a>
-      </div>
-      <!-- END OF NEW BUTTONS -->
-
-      <div class="relative overflow-hidden rounded-xl border border-white/15 bg-slate-950/70 shadow-aurora backdrop-blur-24" data-animate data-delay="0.12s">
-        <div class="relative">
-          <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/45"></div>
-      
-          <video
-            src="{{ site.baseurl }}/assets/images/Flow-Diagram-GIF.mp4"
-            class="aspect-video w-full object-cover"
-            autoplay
-            loop
-            muted
-            playsinline
-            preload="metadata"
-          ></video>
-      
+    
+      <!-- HERO TOP: only text + lots of space -->
+      <div class="mx-auto max-w-4xl px-6 text-center min-h-screen flex flex-col justify-start pt-20" data-animate>
+        <div class="space-y-6">
+          <h1 class="font-light text-4xl text-white sm:text-5xl md:text-5xl leading-tight">
+            Automated carbon accounting? Done.
+          </h1>
+    
+          <div class="space-y-3 text-lg text-slate-200">
+            <h2 class="text-emerald-200 font-semibold text-xl sm:text-2xl">Stop collecting invoices manually.</h2>
+            <h2 class="text-xl sm:text-2xl">
+              Meet <span class="text-emerald-200 font-semibold">Emmy</span> – your AI-powered carbon analyst
+            </h2>
+          </div>
         </div>
       </div>
+    
+      <!-- VIDEO SECTION: only shows when you scroll down -->
+      <div class="mx-auto max-w-5xl px-6">
+        <div class="mt-24 sm:mt-32 md:mt-40" data-animate data-delay="0.12s">
+          <div class="relative overflow-hidden rounded-xl border border-white/15 bg-slate-950/70 shadow-aurora backdrop-blur-24">
+            <video
+              id="flowVideo"
+              src="{{ site.baseurl }}/assets/images/Flow-Diagram-GIF.mp4"
+              class="aspect-video w-full object-cover"
+              loop
+              muted
+              playsinline
+              preload="metadata"
+            ></video>
+          </div>
+    
+          <!-- BUTTONS: now below the video -->
+          <div class="flex justify-center items-center gap-4 mt-10">
+            <a href="{{ site.baseurl }}/start-for-free/"
+               class="inline-flex items-center justify-center whitespace-nowrap rounded-full px-6 py-3 text-base font-semibold text-emerald-600 border border-emerald-600 bg-white shadow-lg transition hover:bg-emerald-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300 hover:-translate-y-0.5">
+              Start for free
+            </a>
+    
+            <a href="{{ site.baseurl }}/contact/"
+               class="cta-primary cursor-pointer inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-semibold text-white shadow-lg transition hover:-translate-y-0.5">
+              Demo or Quote
+            </a>
+          </div>
+    
+          <!-- MISSION: way lower, after the buttons -->
+          <div class="mx-auto max-w-3xl text-center mt-16 pb-24" data-animate data-delay="0.2s">
+            <h3 class="text-xl sm:text-2xl">
+              <span class="text-emerald-200 font-semibold">Our Mission:</span>
+              We want to empower businesses with
+              <span class="text-emerald-200 font-semibold">truly effortless carbon data management</span>,
+              at an <span class="text-emerald-200 font-semibold">affordable and reasonable cost</span>.
+            </h3>
+          </div>
+    
+        </div>
+      </div>
+    </section>
+    
+    <script>
+      (function () {
+        const video = document.getElementById("flowVideo");
+        if (!video) return;
+    
+        // Some browsers won’t allow play() unless muted (you already set muted).
+        // Start only when visible; pause when not.
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                video.play().catch(() => {});
+              } else {
+                video.pause();
+              }
+            }
+          },
+          { threshold: 0.35 } // start when ~35% visible
+        );
+    
+        io.observe(video);
+      })();
+    </script>
 
-    <!-- UPDATED QUOTE SECTION -->
-    <div class="mx-auto max-w-3xl text-center" data-animate data-delay="0.2s">
-      <h3 class="text-xl sm:text-2xl"> <span class="text-emerald-200 font-semibold text-xl sm:text-2xl">Our Mission:</span> We want to empower businesses with <span class="text-emerald-200 font-semibold text-xl sm:text-2xl">truly effortless carbon data management</span>, at an <span class="text-emerald-200 font-semibold text-xl sm:text-2xl">affordable and reasonable cost</span>.</h3>
-    </div>
     <!-- END OF UPDATED QUOTE SECTION -->
 
   </div>
